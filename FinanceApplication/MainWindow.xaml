@@ -1,0 +1,60 @@
+﻿<Window x:Class="FinanceApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="522.517" Width="677.659">
+    <Grid Background="Black" >
+        <DockPanel>
+            
+            <Grid Margin="0,37,-2,37">
+                <StackPanel Orientation="Vertical" Margin="25,15,15,15">
+                    <StackPanel Orientation="Horizontal" Margin="10,5,5,5">
+                        <Label HorizontalAlignment="Left" Width="200px" Foreground="White" Content="B.E.S" />
+                        <TextBox HorizontalAlignment="Right" Width="200px"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10,5,5,5">
+                        <Label HorizontalAlignment="Left" Width="200px" Foreground="White" Content="R.M.I" />
+                        <TextBox HorizontalAlignment="Right" Width="200px"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10,5,5,5">
+                        <Label Foreground="White" Content="L.T.T" Width="200px" HorizontalAlignment="Left"/>
+                        <TextBox HorizontalAlignment="Right" Width="200px"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10,5,5,5">
+                        <Label Foreground="White" HorizontalAlignment="Left" Width="200px" Content="A.D.M"/>
+                        <TextBox HorizontalAlignment="Right" Width="200px"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10,5,5,5">
+                        <Label Foreground="White" Content="E.W.C" Width="200px" HorizontalAlignment="Left"/>
+                        <TextBox HorizontalAlignment="Right" Width="200px"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10,5,5,5">
+                        <Label Foreground="White" Content="MEDICAL" Width="200px" HorizontalAlignment="Left"/>
+                        <TextBox HorizontalAlignment="Right" Width="200px"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10,5,5,5">
+                        <Label Foreground="White" Content="P.E" Width="200px" HorizontalAlignment="Left"/>
+                        <TextBox HorizontalAlignment="Right" Width="200px"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10,5,5,5">
+                        <Label Foreground="White" Content="B.O.G(TRS)" Width="200px" HorizontalAlignment="Left"/>
+                        <TextBox HorizontalAlignment="Right" Width="200px"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10,5,5,5">
+                        <Label Foreground="White" Content="P.T.A" Width="200px" HorizontalAlignment="Left"/>
+                        <TextBox HorizontalAlignment="Right" Width="200px"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10,5,5,5">
+                        <Label Foreground="White" Content="ACTIVITY" Width="200px" HorizontalAlignment="Left"/>
+                        <TextBox HorizontalAlignment="Right" Width="200px"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10,5,5,5">
+                        <Label Foreground="White" Content="MENTORSHIP" Width="200px" HorizontalAlignment="Left"/>
+                        <TextBox HorizontalAlignment="Right" Width="200px"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            
+        </DockPanel>
+
+    </Grid>
+</Window>
