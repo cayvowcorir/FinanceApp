@@ -1,0 +1,28 @@
+﻿<Page x:Class="FinanceApplication.FeeEntry"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="326.906" d:DesignWidth="355.157"
+	Title="FeeEntry">
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Label Width="150">Admission Number</Label>
+                <TextBox Width="190"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="150">Amount</Label>
+                <TextBox Width="190"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Margin="10">Bankers Check</CheckBox>
+                <CheckBox Margin="10">Cash</CheckBox>
+                <CheckBox Margin="10">Other</CheckBox>
+                <TextBox Margin="10" Width="76"></TextBox>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

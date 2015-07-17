@@ -1,8 +1,15 @@
-﻿<Window x:Class="FinanceApplication.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"       
+        xmlns:telerikDocking="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Docking" x:Class="FinanceApplication.MainWindow"       
+        Title="MainWindow" Height="903" Width="1468" WindowStyle="None">
+
+    <Grid Margin="0">
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/background.jpg"/>
+        </Grid.Background>
+        <Frame Margin="0" Source="StudentView.xaml"></Frame>
         
+
     </Grid>
 </Window>

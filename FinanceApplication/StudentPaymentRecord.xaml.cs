@@ -12,26 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Navigation;
 
 namespace FinanceApplication
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StudentPaymentRecord.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StudentPaymentRecord : Page
     {
-        public MainWindow()
+        public StudentPaymentRecord()
         {
             InitializeComponent();
-            this.WindowState = WindowState.Maximized;
-           
         }
-
-        
-
-        
-
-       
     }
 }
