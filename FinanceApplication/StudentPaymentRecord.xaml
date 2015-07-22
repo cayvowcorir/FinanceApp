@@ -1,13 +1,226 @@
-﻿<Page x:Class="FinanceApplication.StudentPaymentRecord"
+﻿<Page xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"  x:Class="FinanceApplication.StudentPaymentRecord" ShowsNavigationUI="False"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
 	Title="StudentPaymentRecord">
 
-    <Grid>
-        
+    <Grid Margin="0,0" >
+        <StackPanel Orientation="Vertical">
+            <StackPanel>
+                <Menu>
+                    <MenuItem Header="File" >
+                        <MenuItem Header="Logout"></MenuItem>
+                        <MenuItem Click="Close_Button_Click" Header="Exit"></MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="Edit"></MenuItem>
+                    <MenuItem Header="Reports"></MenuItem>
+                    <MenuItem Header="Students">
+                        <MenuItem IsEnabled="False" Header="Add Student"></MenuItem>
+                        <MenuItem Header="View Students"></MenuItem>
+                        <MenuItem Header="Modify Details"></MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="Reports"></MenuItem>
+                    <MenuItem Header="Help"></MenuItem>
+
+                </Menu>
+            </StackPanel>
+            <Grid Height="100" Background="#676265" Opacity="0.9">
+                <StackPanel Margin="50,5,5,5" HorizontalAlignment="Left">
+                    <Button Click="Back_Btn_Click" Background="Transparent" BorderBrush="Transparent">
+                        <Grid>
+                            <Grid Name="backgroundGrid" Width="80" Height="80" Visibility="Visible">
+                                <Path Data="M50.5,4.7500001C25.232973,4.75 4.75,25.232973 4.7500001,50.5 4.75,75.767029 25.232973,96.25 50.5,96.25 75.767029,96.25 96.25,75.767029 96.25,50.5 96.25,25.232973 75.767029,4.75 50.5,4.7500001z M50.5,0C78.390381,0 101,22.609621 101,50.5 101,78.390381 78.390381,101 50.5,101 22.609621,101 0,78.390381 0,50.5 0,22.609621 22.609621,0 50.5,0z" Stretch="Fill" Fill="#FFFFFFFF" Name="Stroke" Visibility="Visible" />
+                            </Grid>
+                            <Path Data="M100.661972687318,0L147.487023041322,0 63.3680083013314,79.771056062702 285.305016205384,79.771056062702 285.305016205384,111.138052827839 63.3680083013314,111.138052827839 147.487023041322,190.909117586139 146.885170624329,191.501006013874 101.277153656556,191.501006013874 23.4035479284066,117.648421175007 0,95.4545582599676z" Stretch="Uniform" Fill="#FFFFFFFF" Width="44" Height="44" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Grid>
+                    </Button>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <Label FontSize="50" Foreground="white" FontStretch="UltraExpanded">Kapcheptoror School Finance System</Label>
+                </StackPanel>
+            </Grid>
+            <StackPanel>
+                <DockPanel>
+
+                    <Grid Width="300px">
+                        <StackPanel Margin="30,50,0,0"  Orientation="Vertical">
+                            <StackPanel Orientation="Vertical">
+                                <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265"  Margin="0,0,-3,0">Students</Button>
+                                <Button Click="FeeStructure_Btn_Click" FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265"  Margin="0,20,-3,0">Fee Structure</Button>
+                                <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">School Account</Button>
+                                <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Votehead Distribution</Button>
+                                <Button FontSize="20" Foreground="White" IsEnabled="False" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Enter Payment</Button>
+                                <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Logout</Button>
+                                <Button Click="Close_Button_Click" FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Exit</Button>
+                            </StackPanel>
+                            <StackPanel Margin="20,20,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <telerik:RadCalendar Height="137" Margin="0,0,20,0"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                    <GridSplitter Background="#676265" Width="4" Margin="0,20,0,0"></GridSplitter>
+                    <Grid Margin="0">
+                        <StackPanel Orientation="Vertical" Margin="25,15,0,15">
+                            <Grid>
+
+                                <StackPanel>
+                                    <Grid>
+                                        <DockPanel>
+                                            <Grid>
+                                                <GroupBox Width="600" Header="Student Payment">
+                                                    <TabControl FontSize="15" Margin="10">
+                                                        <TabItem Name="Record_Payment" Header="Record Payment">
+                                                            <Grid Margin="10">
+                                                                <StackPanel Orientation="Vertical">
+                                                                    <StackPanel Margin="3" Orientation="Horizontal">
+                                                                        <Label Background="#87CCEE" Width="200">Admission No.</Label>
+                                                                        <TextBox TextChanged="adm_no_txtbx_TextChanged" Name="adm_no_txtbx" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                    </StackPanel>
+                                                                    <StackPanel Margin="3,30,0,3" Orientation="Horizontal">
+                                                                        <Label Width="100" Background="#87CCEE">First Name</Label>
+                                                                        <TextBox IsEnabled="False" Name="first_name" Margin="5,0,0,0" Width="150" Background="#FFE4E4E4"></TextBox>
+                                                                        <Label Width="100" Margin="10,0,0,0" Background="#87CCEE">Last Name</Label>
+                                                                        <TextBox IsEnabled="False" Name="last_name" Margin="5,0,0,0" Background="#FFE4E4E4" Width="150"></TextBox>
+                                                                    </StackPanel>
+
+                                                                    <StackPanel Margin="3" Orientation="Horizontal">
+                                                                        <Label Width="100" Background="#87CCEE" >Type</Label>
+                                                                        <ComboBox Width="90"  GotFocus="payment_type_GotFocus" Name="payment_type" Margin="5,0,0,0" Background="#FFE4E4E4">
+                                                                            <ComboBoxItem IsSelected="True">Cash</ComboBoxItem>
+                                                                            <ComboBoxItem>Cheque</ComboBoxItem>
+                                                                            <ComboBoxItem>Bank Slip</ComboBoxItem>
+                                                                        </ComboBox>
+                                                                        <Label Margin="70,0,0,0" Width="100" Background="#87CCEE" >Purpose</Label>
+                                                                        <ComboBox Name="purpose" Margin="5,0,0,0" Background="#FFE4E4E4">
+                                                                            <ComboBoxItem IsSelected="True">Fees</ComboBoxItem>
+                                                                            <ComboBoxItem>Damages</ComboBoxItem>
+                                                                            <ComboBoxItem>Misc</ComboBoxItem>
+                                                                        </ComboBox>
+                                                                    </StackPanel>
+
+                                                                    <StackPanel Margin="3,30,0,3" Orientation="Horizontal">
+                                                                        <Label Background="#87CCEE" Width="200">Amount</Label>
+                                                                        <TextBox Name="amount" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                    </StackPanel>
+                                                                    <StackPanel Margin="3" Orientation="Horizontal">
+                                                                        <Label Name="slip_check_number_label" IsEnabled="False" Background="#87CCEE" Width="200">Slip/Cheque Number</Label>
+                                                                        <TextBox IsEnabled="False" Name="slip_check_no" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                    </StackPanel>
+                                                                    <StackPanel HorizontalAlignment="Right" Margin="3" Orientation="Horizontal">
+                                                                        <Button Width="150" Margin="5">
+                                                                            <StackPanel Orientation="Horizontal">
+                                                                                <Path Data="M51.527958,0L64,12.4741 44.47221,32.001027 64,51.52871 51.528,64.000001 32.000016,44.472668 12.471823,64.000001 0.0010004044,51.528802 19.528015,32.001088 0,12.473726 12.472,0.0010004044 31.999884,19.528773z" Stretch="Uniform" Fill="#FFEF0000" Width="20" Height="20" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                                                                    <Path.RenderTransform>
+                                                                                        <TransformGroup>
+                                                                                            <TransformGroup.Children>
+                                                                                                <RotateTransform Angle="0" />
+                                                                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                                                            </TransformGroup.Children>
+                                                                                        </TransformGroup>
+                                                                                    </Path.RenderTransform>
+                                                                                </Path>
+                                                                                <Label>Cancel</Label>
+                                                                            </StackPanel>
+                                                                        </Button>
+                                                                        <Button Click="Submit_Btn_Click" Width="150" Margin="5">
+                                                                            <StackPanel Orientation="Horizontal">
+                                                                                <Path Data="M262.15521,0L285.30499,31.972985 74.63865,191.5 51.475247,159.54538 51.493207,159.5316 0,88.366782 31.276521,64.698332 82.760751,135.84048z" Stretch="Uniform" Fill="#FF56D71C" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                                                                    <Path.RenderTransform>
+                                                                                        <TransformGroup>
+                                                                                            <TransformGroup.Children>
+                                                                                                <RotateTransform Angle="0" />
+                                                                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                                                            </TransformGroup.Children>
+                                                                                        </TransformGroup>
+                                                                                    </Path.RenderTransform>
+                                                                                </Path>
+                                                                                <Label>Submit</Label>
+                                                                            </StackPanel>
+                                                                        </Button>
+                                                                    </StackPanel>
+                                                                </StackPanel>
+                                                            </Grid>
+                                                        </TabItem>
+                                                        <TabItem GotFocus="PaymentRecords_TabItem_GotFocus"  Header="Student Payment Records">
+                                                            <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="2" >
+                                                                <DataGrid Width="537"  AlternatingRowBackground="#FFC9E9F9" IsManipulationEnabled="False" AreRowDetailsFrozen="True" Name="payment_records_grid" ItemsSource="{Binding}" >
+
+                                                                </DataGrid>
+                                                            </ScrollViewer>
+                                                        </TabItem>
+                                                    </TabControl>
+                                                </GroupBox>
+
+                                            </Grid>
+                                            <Grid Margin="15,0,0,0" HorizontalAlignment="Left">
+                                                <GroupBox Header="Individual Student Records">
+                                                    <StackPanel  >
+                                                        <telerik:RadPaneGroup FontSize="15">
+                                                            <telerik:RadPane Header="Individual Records">
+                                                                <StackPanel Margin="5,10">
+                                                                    <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                                                                        <Label Background="#87CCEE">Admission Number</Label>
+                                                                        <TextBox Margin="3,0,0,0" TextChanged="IndividualPayRecord_TextChanged" Width="100"></TextBox>
+                                                                    </StackPanel>
+                                                                    <StackPanel>
+                                                                        <Label>Results:</Label>
+                                                                        <DataGrid Name="individual_pay_records" ItemsSource="{Binding}"></DataGrid>
+                                                                    </StackPanel>
+                                                                </StackPanel>
+                                                            </telerik:RadPane>
+                                                        </telerik:RadPaneGroup>
+                                                    </StackPanel>
+                                                </GroupBox>
+                                            </Grid>
+                                        </DockPanel>
+                                    </Grid>
+                                    
+                                    <Grid Margin="0,5,0,0">                                        
+                                        <StackPanel>                                            
+                                            <GroupBox Header="Votehead Breakdown">
+                                                <StackPanel Margin="10">
+                                                    <telerik:RadPaneGroup>
+                                                        <telerik:RadPane Header="Individual Votehead Breakdown">
+                                                            <StackPanel Margin="10">
+                                                                <StackPanel Margin="10" Orientation="Horizontal">
+                                                                    <Label Width="200">Admission Number</Label>
+                                                                    <TextBox TextChanged="Adm_no_votehead_brkdwn_TextChanged" Name="Adm_no_votehead_brkdwn"  Width="300"></TextBox>
+                                                                </StackPanel>
+                                                                <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="2" >
+                                                                    <DataGrid Name="votehead_brkdwn_dtgrd" ItemsSource="{Binding}">
+                                                                    </DataGrid>
+                                                                </ScrollViewer>
+                                                            </StackPanel>
+                                                            
+                                                        </telerik:RadPane>
+                                                    </telerik:RadPaneGroup>
+                                                    
+                                                </StackPanel>                                               
+                                            </GroupBox>                                            
+                                        </StackPanel>
+                                    </Grid>
+                                </StackPanel>
+                                
+
+                            </Grid>
+
+                        </StackPanel>
+                    </Grid>
+
+
+                </DockPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
