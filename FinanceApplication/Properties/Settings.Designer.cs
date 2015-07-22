@@ -33,5 +33,16 @@ namespace FinanceApplication.Properties {
                 return ((string)(this["finanaceappConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=kevmusician1994;persistsecurityinfo=True;d" +
+            "atabase=financeapp")]
+        public string financeappConnectionString {
+            get {
+                return ((string)(this["financeappConnectionString"]));
+            }
+        }
     }
 }

@@ -42,5 +42,12 @@ namespace FinanceApplication
             nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("ModifyFeeStructure.xaml", UriKind.RelativeOrAbsolute));
         }
+        private void AddStudent_MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService nav;
+            nav = NavigationService.GetNavigationService(this);
+            nav.Navigate(new Uri("StudentView.xaml#ModifyDetails", UriKind.RelativeOrAbsolute));
+
+        }
     }
 }

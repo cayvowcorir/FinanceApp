@@ -8,7 +8,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="Images/background.jpg"/>
         </Grid.Background>
-        <Frame Margin="0" Source="StudentView.xaml"></Frame>
+        <Frame NavigationUIVisibility="Hidden" Margin="0" Source="StudentPaymentRecord.xaml"></Frame>
         
 
     </Grid>

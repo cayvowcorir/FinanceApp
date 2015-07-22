@@ -24,7 +24,7 @@ namespace FinanceApplication
         public MainWindow()
         {
             InitializeComponent();
-            this.WindowState = WindowState.Maximized;
+            this.WindowState = WindowState.Maximized;       
            
         }
 
