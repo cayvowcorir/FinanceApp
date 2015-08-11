@@ -107,13 +107,13 @@ namespace FinanceApplication
         public Dictionary<string,string> Add(string form, string term)
         {
             financeappDataSet fdset = new financeappDataSet();
-            financeappDataSetTableAdapters.fees_structureTableAdapter fadapt = new financeappDataSetTableAdapters.fees_structureTableAdapter();
-            fadapt.Fill(fdset.fees_structure);
-            int columncount = fdset.fees_structure.Columns.Count;
-            int rowcount = fdset.fees_structure.Rows.Count;
+            financeappDataSetTableAdapters.fee_structureTableAdapter fadapt = new financeappDataSetTableAdapters.fee_structureTableAdapter();
+            fadapt.Fill(fdset.fee_structure);
+            int columncount = fdset.fee_structure.Columns.Count;
+            int rowcount = fdset.fee_structure.Rows.Count;
             var feesitems = new Dictionary<string, string>();
 
-            foreach (DataRow row in fdset.fees_structure.Rows)
+            foreach (DataRow row in fdset.fee_structure.Rows)
             {
                 var count = 0;
                 
@@ -121,7 +121,7 @@ namespace FinanceApplication
                 {
                     while (count < columncount)
                     {
-                        feesitems[fdset.fees_structure.Columns[count].ToString()] = Convert.ToString(row[fdset.fees_structure.Columns[count]]);
+                        feesitems[fdset.fee_structure.Columns[count].ToString()] = Convert.ToString(row[fdset.fee_structure.Columns[count]]);
                         count++;                        
                     }
                     

@@ -68,7 +68,7 @@ namespace FinanceApplication
             set { parentName = value; }
         }       
 
-        private string connectionString = Properties.Settings.Default.finanaceappConnectionString;
+        private string connectionString = Properties.Settings.Default.financeappConnectionString;
         public void New()
         {
             
