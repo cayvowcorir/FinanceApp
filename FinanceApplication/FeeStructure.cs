@@ -13,104 +13,104 @@ namespace FinanceApplication
 {
     class FeeStructure
     {
-        private string selected_form;
-        private string selected_term;
-        public Dictionary<string, string> InitializeClass(string selected_form, string selected_term)
+        private string _selectedForm;
+        private string _selectedTerm;
+        public Dictionary<string, string> InitializeClass(string selectedForm, string selectedTerm)
         {
             // TODO: Complete member initialization
-            this.selected_form = selected_form;
-            this.selected_term = selected_term;
-            return Add(selected_form, selected_term);
+            this._selectedForm = selectedForm;
+            this._selectedTerm = selectedTerm;
+            return Add(selectedForm, selectedTerm);
         }
 
-        private string bes;
+        private string _bes;
 
         public string Bes
         {
-            get { return bes; }
-            set { bes = value; }
+            get { return _bes; }
+            set { _bes = value; }
         }
-        private string rmi;
+        private string _rmi;
 
         public string Rmi
         {
-            get { return rmi; }
-            set { rmi = value; }
+            get { return _rmi; }
+            set { _rmi = value; }
         }
-        private string ltt;
+        private string _ltt;
         
         public string Ltt
         {
-            get { return ltt; }
-            set { ltt = value; }
+            get { return _ltt; }
+            set { _ltt = value; }
         }
-        private string adm;
+        private string _adm;
 
         public string Adm
         {
-            get { return adm; }
-            set { adm = value; }
+            get { return _adm; }
+            set { _adm = value; }
         }
-        private string ewc;
+        private string _ewc;
 
         public string Ewc
         {
-            get { return ewc; }
-            set { ewc = value; }
+            get { return _ewc; }
+            set { _ewc = value; }
         }
-        private string medical;
+        private string _medical;
 
         public string Medical
         {
-            get { return medical; }
-            set { medical = value; }
+            get { return _medical; }
+            set { _medical = value; }
         }
-        private string pe;
+        private string _pe;
 
         public string Pe
         {
-            get { return pe; }
-            set { pe = value; }
+            get { return _pe; }
+            set { _pe = value; }
         }
-        private string bog;
+        private string _bog;
 
         public string Bog
         {
-            get { return bog; }
-            set { bog = value; }
+            get { return _bog; }
+            set { _bog = value; }
         }
-        private string pta;
+        private string _pta;
 
         public string Pta
         {
-            get { return pta; }
-            set { pta = value; }
+            get { return _pta; }
+            set { _pta = value; }
         }
-        private string activity;
+        private string _activity;
 
         public string Activity
         {
-            get { return activity; }
-            set { activity = value; }
+            get { return _activity; }
+            set { _activity = value; }
         }
-        private string mentorship;
+        private string _mentorship;
         
        
 
         public string Mentorship
         {
-            get { return mentorship; }
-            set { mentorship = value; }
+            get { return _mentorship; }
+            set { _mentorship = value; }
         }
         
 
         public Dictionary<string,string> Add(string form, string term)
         {
-            financeappDataSet fdset = new financeappDataSet();
-            financeappDataSetTableAdapters.fee_structureTableAdapter fadapt = new financeappDataSetTableAdapters.fee_structureTableAdapter();
+            var fdset = new financeappDataSet();
+            var fadapt = new financeappDataSetTableAdapters.fee_structureTableAdapter();
             fadapt.Fill(fdset.fee_structure);
-            int columncount = fdset.fee_structure.Columns.Count;
-            int rowcount = fdset.fee_structure.Rows.Count;
+            var columncount = fdset.fee_structure.Columns.Count;
+            var rowcount = fdset.fee_structure.Rows.Count;
             var feesitems = new Dictionary<string, string>();
 
             foreach (DataRow row in fdset.fee_structure.Rows)

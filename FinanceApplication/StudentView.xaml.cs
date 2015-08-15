@@ -56,7 +56,7 @@ namespace FinanceApplication
 
         private void AddStudent_Submit_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (first_name.Text == "" || last_name.Text == "" || dob.Text == "" || gender.Text == "" | adm_date.Text == "" || adm_no.Text == "" || parent_contact.Text == "" || parent_name.Text == "")
+            if (FirstName.Text == "" || LastName.Text == "" || Dob.Text == "" || Gender.Text == "" | AdmDate.Text == "" || AdmNo.Text == "" || ParentContact.Text == "" || ParentName.Text == "")
             {
                 MessageBox.Show("You have left out a field");
             }
@@ -64,22 +64,22 @@ namespace FinanceApplication
             {
                 try
                 {
-                    AddStudent addStudent = new AddStudent();
+                    var addStudent = new AddStudent();
 
-                    addStudent.FirstName = first_name.Text;
-                    addStudent.LastName = last_name.Text;
-                    addStudent.DofBirth = dob.Text;
-                    addStudent.Gender = gender.Text;
-                    addStudent.AdmNo = adm_no.Text;
-                    addStudent.AdmDate = adm_date.Text;
-                    addStudent.ParentName = parent_name.Text;
-                    addStudent.ParentContact = parent_contact.Text;
+                    addStudent.FirstName = FirstName.Text;
+                    addStudent.LastName = LastName.Text;
+                    addStudent.DofBirth = Dob.Text;
+                    addStudent.Gender = Gender.Text;
+                    addStudent.AdmNo = AdmNo.Text;
+                    addStudent.AdmDate = AdmDate.Text;
+                    addStudent.ParentName = ParentName.Text;
+                    addStudent.ParentContact = ParentContact.Text;
                     addStudent.New();
                     PageClear();
                 }
                 catch (Exception ex)
                 {
-                    string exceptionmessage = ex.Message.ToString();
+                    var exceptionmessage = ex.Message.ToString();
                     MessageBox.Show("Error occured while trying to write to the database. Check the input values and try again. Error Message: " + exceptionmessage);
                 }
             }
@@ -101,71 +101,79 @@ namespace FinanceApplication
 
         public void PageClear()
         {
-            first_name.Text= String.Empty;
-            last_name.Text = String.Empty;          
-            adm_no.Text = String.Empty;
-            parent_contact.Text = String.Empty;
-            parent_name.Text = String.Empty;
+            FirstName.Text= String.Empty;
+            LastName.Text = String.Empty;          
+            AdmNo.Text = String.Empty;
+            ParentContact.Text = String.Empty;
+            ParentName.Text = String.Empty;
         }
 
         private void StudentDetail_Tbx_KeyUp(object sender, TextChangedEventArgs e)
         {
-            AddStudent stdnt = new AddStudent();
-            Dictionary<string, string> dict=stdnt.RetrieveDetails(adm_no_modify.Text);
+            var stdnt = new AddStudent();
+            var dict=stdnt.RetrieveDetails(AdmNoModify.Text);
             try
             {
-                first_name_modify.Text = dict["first_name"];
-                last_name_modify.Text = dict["last_name"];
-                dob_modify.Text = dict["dof_birth"];
-                gender_modify.Text = dict["gender"];
-                adm_date_modify.Text = dict["adm_date"];
-                parent_name_modify.Text = dict["parent_name"];
-                parent_contact_modify.Text = dict["parent_contact"];
+                FirstNameModify.Text = dict["first_name"];
+                LastNameModify.Text = dict["last_name"];
+                DobModify.Text = dict["dof_birth"];
+                GenderModify.Text = dict["gender"];
+                AdmDateModify.Text = dict["adm_date"];
+                ParentNameModify.Text = dict["parent_name"];
+                ParentContactModify.Text = dict["parent_contact"];
             }
             catch
             {
 
             }
         }
-
         private void ModifyStudent_Submit_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (first_name_modify.Text == "" || last_name_modify.Text == "" || dob_modify.Text == "" || gender_modify.Text == "" | adm_date_modify.Text == "" || adm_no_modify.Text == "" || parent_contact_modify.Text == "" || parent_name_modify.Text == "")
+           
+            if (FirstNameModify.Text == "" || LastNameModify.Text == "" || DobModify.Text == "" || GenderModify.Text == "" | AdmDateModify.Text == "" || AdmNoModify.Text == "" || ParentContactModify.Text == "" || ParentNameModify.Text == "")
             {
                 MessageBox.Show("You have left out a field");
             }
+           
             else
             {
                 try
                 {
-                    AddStudent addStudent = new AddStudent();
+                    var addStudent = new AddStudent();
 
-                    addStudent.FirstName = first_name_modify.Text;
-                    addStudent.LastName = last_name_modify.Text;
-                    addStudent.DofBirth = dob_modify.Text;
-                    addStudent.Gender = gender_modify.Text;
-                    addStudent.AdmNo = adm_no_modify.Text;
-                    addStudent.AdmDate = adm_date_modify.Text;
-                    addStudent.ParentName = parent_name_modify.Text;
-                    addStudent.ParentContact = parent_contact_modify.Text;
+                    addStudent.FirstName = FirstNameModify.Text;
+                    addStudent.LastName = LastNameModify.Text;
+                    addStudent.DofBirth = DobModify.Text;
+                    addStudent.Gender = GenderModify.Text;
+                    addStudent.AdmNo = AdmNoModify.Text;
+                    addStudent.AdmDate = AdmDateModify.Text;
+                    addStudent.ParentName = ParentNameModify.Text;
+                    addStudent.ParentContact = ParentContactModify.Text;
                     addStudent.Modify();
                     PageClear();
                 }
                 catch (Exception ex)
                 {
-                    string exceptionmessage = ex.Message.ToString();
+                    var exceptionmessage = ex.Message.ToString();
                     MessageBox.Show("Error occured while trying to write to the database. Check the input values and try again. Error Message: " + exceptionmessage);
                 }
             }
 
         }
 
-        private void ViewStudents_Tab_Loaded(object sender, RoutedEventArgs e)
+        private void ViewStudents_Tab_GotFocus(object sender, RoutedEventArgs e)
         {
-            financeappDataSet fdset = new financeappDataSet();
-            financeappDataSetTableAdapters.students_detailsTableAdapter fsdadapter = new financeappDataSetTableAdapters.students_detailsTableAdapter();
+            var fdset = new financeappDataSet();
+            var fsdadapter = new financeappDataSetTableAdapters.students_detailsTableAdapter();
             fsdadapter.Fill(fdset.students_details);
-            view_students_grid.DataContext = fsdadapter.GetData();
+            ViewStudentsGrid.DataContext = fsdadapter.GetData();
+        }
+
+        private void EnterPayment_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService nav;
+            nav = NavigationService.GetNavigationService(this);
+            nav.Navigate(new Uri("StudentPaymentRecord.xaml", UriKind.RelativeOrAbsolute));
         }
 
 

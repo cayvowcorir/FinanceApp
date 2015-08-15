@@ -30,7 +30,7 @@
                 <StackPanel Margin="50,5,5,5" HorizontalAlignment="Left">
                     <Button Click="Back_Btn_Click" Background="Transparent" BorderBrush="Transparent">
                         <Grid>
-                            <Grid Name="backgroundGrid" Width="80" Height="80" Visibility="Visible">
+                            <Grid Name="BackgroundGrid" Width="80" Height="80" Visibility="Visible">
                                 <Path Data="M50.5,4.7500001C25.232973,4.75 4.75,25.232973 4.7500001,50.5 4.75,75.767029 25.232973,96.25 50.5,96.25 75.767029,96.25 96.25,75.767029 96.25,50.5 96.25,25.232973 75.767029,4.75 50.5,4.7500001z M50.5,0C78.390381,0 101,22.609621 101,50.5 101,78.390381 78.390381,101 50.5,101 22.609621,101 0,78.390381 0,50.5 0,22.609621 22.609621,0 50.5,0z" Stretch="Fill" Fill="#FFFFFFFF" Name="Stroke" Visibility="Visible" />
                             </Grid>
                             <Path Data="M100.661972687318,0L147.487023041322,0 63.3680083013314,79.771056062702 285.305016205384,79.771056062702 285.305016205384,111.138052827839 63.3680083013314,111.138052827839 147.487023041322,190.909117586139 146.885170624329,191.501006013874 101.277153656556,191.501006013874 23.4035479284066,117.648421175007 0,95.4545582599676z" Stretch="Uniform" Fill="#FFFFFFFF" Width="44" Height="44" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
@@ -56,7 +56,7 @@
                     <Grid Width="300px">
                         <StackPanel Margin="30,50,0,0"  Orientation="Vertical">
                             <StackPanel Orientation="Vertical">
-                                <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265"  Margin="0,0,-3,0">Students</Button>
+                                <Button Click="Students_Btn_Click" FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265"  Margin="0,0,-3,0">Students</Button>
                                 <Button Click="FeeStructure_Btn_Click" FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265"  Margin="0,20,-3,0">Fee Structure</Button>
                                 <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">School Account</Button>
                                 <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Votehead Distribution</Button>
@@ -80,29 +80,29 @@
                                             <Grid>
                                                 <GroupBox Width="600" Header="Student Payment">
                                                     <TabControl FontSize="15" Margin="10">
-                                                        <TabItem Name="Record_Payment" Header="Record Payment">
+                                                        <TabItem Name="RecordPayment" Header="Record Payment">
                                                             <Grid Margin="10">
                                                                 <StackPanel Orientation="Vertical">
                                                                     <StackPanel Margin="3" Orientation="Horizontal">
                                                                         <Label Background="#87CCEE" Width="200">Admission No.</Label>
-                                                                        <TextBox TextChanged="adm_no_txtbx_TextChanged" Name="adm_no_txtbx" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                        <TextBox TextChanged="adm_no_txtbx_TextChanged" Name="AdmNoTxtbx" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
                                                                     </StackPanel>
                                                                     <StackPanel Margin="3,30,0,3" Orientation="Horizontal">
                                                                         <Label Width="100" Background="#87CCEE">First Name</Label>
-                                                                        <TextBox IsEnabled="False" Name="first_name" Margin="5,0,0,0" Width="150" Background="#FFE4E4E4"></TextBox>
+                                                                        <TextBox IsEnabled="False" Name="FirstName" Margin="5,0,0,0" Width="150" Background="#FFE4E4E4"></TextBox>
                                                                         <Label Width="100" Margin="10,0,0,0" Background="#87CCEE">Last Name</Label>
-                                                                        <TextBox IsEnabled="False" Name="last_name" Margin="5,0,0,0" Background="#FFE4E4E4" Width="150"></TextBox>
+                                                                        <TextBox IsEnabled="False" Name="LastName" Margin="5,0,0,0" Background="#FFE4E4E4" Width="150"></TextBox>
                                                                     </StackPanel>
 
                                                                     <StackPanel Margin="3" Orientation="Horizontal">
                                                                         <Label Width="100" Background="#87CCEE" >Type</Label>
-                                                                        <ComboBox Width="90"  GotFocus="payment_type_GotFocus" Name="payment_type" Margin="5,0,0,0" Background="#FFE4E4E4">
+                                                                        <ComboBox Width="90"  GotFocus="payment_type_GotFocus" Name="PaymentType" Margin="5,0,0,0" Background="#FFE4E4E4">
                                                                             <ComboBoxItem IsSelected="True">Cash</ComboBoxItem>
                                                                             <ComboBoxItem>Cheque</ComboBoxItem>
                                                                             <ComboBoxItem>Bank Slip</ComboBoxItem>
                                                                         </ComboBox>
                                                                         <Label Margin="70,0,0,0" Width="100" Background="#87CCEE" >Purpose</Label>
-                                                                        <ComboBox Name="purpose" Margin="5,0,0,0" Background="#FFE4E4E4">
+                                                                        <ComboBox Name="Purpose" Margin="5,0,0,0" Background="#FFE4E4E4">
                                                                             <ComboBoxItem IsSelected="True">Fees</ComboBoxItem>
                                                                             <ComboBoxItem>Damages</ComboBoxItem>
                                                                             <ComboBoxItem>Misc</ComboBoxItem>
@@ -111,11 +111,11 @@
 
                                                                     <StackPanel Margin="3,30,0,3" Orientation="Horizontal">
                                                                         <Label Background="#87CCEE" Width="200">Amount</Label>
-                                                                        <TextBox Name="amount" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                        <TextBox Name="Amount" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
                                                                     </StackPanel>
                                                                     <StackPanel Margin="3" Orientation="Horizontal">
-                                                                        <Label Name="slip_check_number_label" IsEnabled="False" Background="#87CCEE" Width="200">Slip/Cheque Number</Label>
-                                                                        <TextBox IsEnabled="False" Name="slip_check_no" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                        <Label Name="SlipCheckNumberLabel" IsEnabled="False" Background="#87CCEE" Width="200">Slip/Cheque Number</Label>
+                                                                        <TextBox IsEnabled="False" Name="SlipCheckNo" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
                                                                     </StackPanel>
                                                                     <StackPanel HorizontalAlignment="Right" Margin="3" Orientation="Horizontal">
                                                                         <Button Width="150" Margin="5">
@@ -154,7 +154,7 @@
                                                         </TabItem>
                                                         <TabItem GotFocus="PaymentRecords_TabItem_GotFocus"  Header="Student Payment Records">
                                                             <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="2" >
-                                                                <DataGrid Width="537"  AlternatingRowBackground="#FFC9E9F9" IsManipulationEnabled="False" AreRowDetailsFrozen="True" Name="payment_records_grid" ItemsSource="{Binding}" >
+                                                                <DataGrid Width="537"  AlternatingRowBackground="#FFC9E9F9" IsManipulationEnabled="False" AreRowDetailsFrozen="True" Name="PaymentRecordsGrid" ItemsSource="{Binding}" >
 
                                                                 </DataGrid>
                                                             </ScrollViewer>
@@ -175,7 +175,7 @@
                                                                     </StackPanel>
                                                                     <StackPanel>
                                                                         <Label>Results:</Label>
-                                                                        <DataGrid Name="individual_pay_records" ItemsSource="{Binding}"></DataGrid>
+                                                                        <DataGrid Name="IndividualPayRecords" ItemsSource="{Binding}"></DataGrid>
                                                                     </StackPanel>
                                                                 </StackPanel>
                                                             </telerik:RadPane>
@@ -195,10 +195,10 @@
                                                             <StackPanel Margin="10">
                                                                 <StackPanel Margin="10" Orientation="Horizontal">
                                                                     <Label Width="200">Admission Number</Label>
-                                                                    <TextBox TextChanged="Adm_no_votehead_brkdwn_TextChanged" Name="Adm_no_votehead_brkdwn"  Width="300"></TextBox>
+                                                                    <TextBox TextChanged="Adm_no_votehead_brkdwn_TextChanged" Name="AdmNoVoteheadBrkdwn"  Width="300"></TextBox>
                                                                 </StackPanel>
                                                                 <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="2" >
-                                                                    <DataGrid Name="votehead_brkdwn_dtgrd" ItemsSource="{Binding}">
+                                                                    <DataGrid Name="VoteheadBrkdwnDtgrd" ItemsSource="{Binding}">
                                                                     </DataGrid>
                                                                 </ScrollViewer>
                                                             </StackPanel>

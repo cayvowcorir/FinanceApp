@@ -86,71 +86,71 @@ namespace FinanceApplication
 
         private void LoadFeeStructure_Btn_Click(object sender, RoutedEventArgs e)
         {
-            String selected_form="0";
-            String selected_term="0";
+            var selectedForm="0";
+            var selectedTerm="0";
 
-            switch (Form_Selector.Text)
+            switch (FormSelector.Text)
             {
                 case "Form 1":
-                    selected_form = "1";
+                    selectedForm = "1";
                     break;
                 case "Form 2":
-                    selected_form = "2";
+                    selectedForm = "2";
                     break;
                 case "Form 3":
-                    selected_form = "3";
+                    selectedForm = "3";
                     break;
                 case "Form 4":
-                    selected_form = "4";
+                    selectedForm = "4";
                     break;
 
             }
-            switch (Term_Selector.Text)
+            switch (TermSelector.Text)
             {
                 case "Term 1":
-                    selected_term = "1";
+                    selectedTerm = "1";
                     break;
                 case "Term 2":
-                    selected_term = "2";
+                    selectedTerm = "2";
                     break;
                 case "Term 3":
-                    selected_term = "3";
+                    selectedTerm = "3";
                     break;
                 case "Term 4":
-                    selected_term = "4";
+                    selectedTerm = "4";
                     break;
                 default:
-                    selected_term = "0";
+                    selectedTerm = "0";
                     break;
 
             }
 
-            if (selected_form== "0")
+            if (selectedForm== "0")
             {
                 MessageBox.Show("You have not selected a Form");
             }
-            else if (selected_term == "0")
+            else if (selectedTerm == "0")
             {
                 MessageBox.Show("You have not selected a Term");
             }
             else
             {
                 
-                FeeStructure fstructure = new FeeStructure();
+                var fstructure = new FeeStructure();
                 try
                 {
-                    Dictionary<string, string> feesstructuredict = fstructure.InitializeClass(selected_form, selected_term);
-                    BES.Text = feesstructuredict["bes"];
-                    RMI.Text = feesstructuredict["rmi"];
-                    LTT.Text = feesstructuredict["ltt"];
-                    ADM.Text = feesstructuredict["adm"];
-                    EWC.Text = feesstructuredict["ewc"];
-                    MEDICAL.Text = feesstructuredict["medical"];
-                    PE.Text = feesstructuredict["pe"];
-                    BOG.Text = feesstructuredict["bog"];
-                    PTA.Text = feesstructuredict["pta"];
-                    ACTIVITY.Text = feesstructuredict["activity"];
-                    MENTORSHIP.Text = feesstructuredict["mentorship"];
+                    var feesstructuredict = fstructure.InitializeClass(selectedForm, selectedTerm);
+                    Bes.Text = feesstructuredict["bes"];
+                    Rmi.Text = feesstructuredict["rmi"];
+                    Ltt.Text = feesstructuredict["ltt"];
+                    Adm.Text = feesstructuredict["adm"];
+                    Ewc.Text = feesstructuredict["ewc"];
+                    Medical.Text = feesstructuredict["medical"];
+                    Pe.Text = feesstructuredict["pe"];
+                    Bog.Text = feesstructuredict["bog"];
+                    Pta.Text = feesstructuredict["pta"];
+                    Activity.Text = feesstructuredict["activity"];
+                    Mentorship.Text = feesstructuredict["mentorship"];
                 }
                 catch (Exception e1)
                 {
@@ -159,6 +159,14 @@ namespace FinanceApplication
                 
 
             }
+        }
+
+        
+        private void EnterPayment_Btn_click(object sender, RoutedEventArgs e)
+        {
+            NavigationService nav;
+            nav = NavigationService.GetNavigationService(this);
+            nav.Navigate(new Uri("StudentPaymentRecord.xaml", UriKind.RelativeOrAbsolute));
         }
        
     }

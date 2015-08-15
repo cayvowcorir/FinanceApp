@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Navigation;
+using System.Windows.Threading;
 
 namespace FinanceApplication
 {
@@ -28,7 +28,26 @@ namespace FinanceApplication
            
         }
 
-        
+        void browserFrame_FragmentNavigation(object sender, FragmentNavigationEventArgs e)
+        {
+            var content = ((ContentControl)e.Navigator).Content;
+            var fragmentElement = LogicalTreeHelper.FindLogicalNode((DependencyObject)content, e.Fragment) as FrameworkElement;
+            if (fragmentElement == null)
+            {
+                // Redirect to error page
+                // Note - You can't navigate from within a FragmentNavigation event handler,
+                //        hence creation of an async dispatcher work item
+                this.Dispatcher.BeginInvoke(
+                    DispatcherPriority.Send,
+                    (DispatcherOperationCallback)delegate(object unused)
+                    {
+                        this.BrowserFrame.Navigate(new Uri("FragmentNotFoundPage.xaml", UriKind.Relative));
+                        return null;
+                    },
+                    null);
+                e.Handled = true;
+            }
+        }
 
         
 

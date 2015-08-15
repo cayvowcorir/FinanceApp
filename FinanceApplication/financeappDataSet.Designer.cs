@@ -883,6 +883,8 @@ namespace FinanceApplication {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class payment_detailsDataTable : global::System.Data.TypedTableBase<payment_detailsRow> {
             
+            private global::System.Data.DataColumn columnid;
+            
             private global::System.Data.DataColumn columnadmission_no;
             
             private global::System.Data.DataColumn columnbes;
@@ -948,6 +950,14 @@ namespace FinanceApplication {
             protected payment_detailsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1143,6 +1153,7 @@ namespace FinanceApplication {
                         int total) {
                 payment_detailsRow rowpayment_detailsRow = ((payment_detailsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        null,
                         admission_no,
                         bes,
                         rmi,
@@ -1167,9 +1178,9 @@ namespace FinanceApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public payment_detailsRow FindByadmission_no(int admission_no) {
+            public payment_detailsRow FindByid(int id) {
                 return ((payment_detailsRow)(this.Rows.Find(new object[] {
-                            admission_no})));
+                            id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1189,6 +1200,7 @@ namespace FinanceApplication {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
+                this.columnid = base.Columns["id"];
                 this.columnadmission_no = base.Columns["admission_no"];
                 this.columnbes = base.Columns["bes"];
                 this.columnrmi = base.Columns["rmi"];
@@ -1211,6 +1223,8 @@ namespace FinanceApplication {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
                 this.columnadmission_no = new global::System.Data.DataColumn("admission_no", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnadmission_no);
                 this.columnbes = new global::System.Data.DataColumn("bes", typeof(int), null, global::System.Data.MappingType.Element);
@@ -1246,9 +1260,16 @@ namespace FinanceApplication {
                 this.columntotal = new global::System.Data.DataColumn("total", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnadmission_no}, true));
+                                this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AllowDBNull = false;
+                this.columnid.ReadOnly = true;
+                this.columnid.Unique = true;
                 this.columnadmission_no.AllowDBNull = false;
-                this.columnadmission_no.Unique = true;
+                this.columnform.AllowDBNull = false;
+                this.columnterm.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1539,9 +1560,9 @@ namespace FinanceApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public payment_summaryRow FindByadmission_no(int admission_no) {
+            public payment_summaryRow FindByreceipt_no(int receipt_no) {
                 return ((payment_summaryRow)(this.Rows.Find(new object[] {
-                            admission_no})));
+                            receipt_no})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1588,16 +1609,19 @@ namespace FinanceApplication {
                 this.columnamount = new global::System.Data.DataColumn("amount", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnamount);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnadmission_no}, true));
+                                this.columnreceipt_no}, true));
                 this.columnadmission_no.AllowDBNull = false;
-                this.columnadmission_no.Unique = true;
                 this.columntype.MaxLength = 45;
                 this.columncheck_number.MaxLength = 45;
                 this.columnreceipt_no.AutoIncrement = true;
                 this.columnreceipt_no.AutoIncrementSeed = -1;
                 this.columnreceipt_no.AutoIncrementStep = -1;
+                this.columnreceipt_no.AllowDBNull = false;
+                this.columnreceipt_no.ReadOnly = true;
+                this.columnreceipt_no.Unique = true;
                 this.columnpurpose.MaxLength = 45;
                 this.columnslip_no.MaxLength = 45;
+                this.columnamount.AllowDBNull = false;
                 this.columnamount.MaxLength = 255;
             }
             
@@ -1959,7 +1983,7 @@ namespace FinanceApplication {
                 this.columnlast_name.MaxLength = 45;
                 this.columngender.MaxLength = 45;
                 this.columnparent_name.MaxLength = 45;
-                this.columnparent_contact.MaxLength = 45;
+                this.columnparent_contact.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2576,6 +2600,17 @@ namespace FinanceApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id {
+                get {
+                    return ((int)(this[this.tablepayment_details.idColumn]));
+                }
+                set {
+                    this[this.tablepayment_details.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int admission_no {
                 get {
                     return ((int)(this[this.tablepayment_details.admission_noColumn]));
@@ -2797,12 +2832,7 @@ namespace FinanceApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int form {
                 get {
-                    try {
-                        return ((int)(this[this.tablepayment_details.formColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'form\' in table \'payment_details\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablepayment_details.formColumn]));
                 }
                 set {
                     this[this.tablepayment_details.formColumn] = value;
@@ -2813,12 +2843,7 @@ namespace FinanceApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int term {
                 get {
-                    try {
-                        return ((int)(this[this.tablepayment_details.termColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'term\' in table \'payment_details\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablepayment_details.termColumn]));
                 }
                 set {
                     this[this.tablepayment_details.termColumn] = value;
@@ -2999,30 +3024,6 @@ namespace FinanceApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsformNull() {
-                return this.IsNull(this.tablepayment_details.formColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetformNull() {
-                this[this.tablepayment_details.formColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IstermNull() {
-                return this.IsNull(this.tablepayment_details.termColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SettermNull() {
-                this[this.tablepayment_details.termColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IstotalNull() {
                 return this.IsNull(this.tablepayment_details.totalColumn);
             }
@@ -3095,12 +3096,7 @@ namespace FinanceApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int receipt_no {
                 get {
-                    try {
-                        return ((int)(this[this.tablepayment_summary.receipt_noColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'receipt_no\' in table \'payment_summary\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablepayment_summary.receipt_noColumn]));
                 }
                 set {
                     this[this.tablepayment_summary.receipt_noColumn] = value;
@@ -3143,12 +3139,7 @@ namespace FinanceApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string amount {
                 get {
-                    try {
-                        return ((string)(this[this.tablepayment_summary.amountColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'amount\' in table \'payment_summary\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tablepayment_summary.amountColumn]));
                 }
                 set {
                     this[this.tablepayment_summary.amountColumn] = value;
@@ -3181,18 +3172,6 @@ namespace FinanceApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isreceipt_noNull() {
-                return this.IsNull(this.tablepayment_summary.receipt_noColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setreceipt_noNull() {
-                this[this.tablepayment_summary.receipt_noColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IspurposeNull() {
                 return this.IsNull(this.tablepayment_summary.purposeColumn);
             }
@@ -3213,18 +3192,6 @@ namespace FinanceApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setslip_noNull() {
                 this[this.tablepayment_summary.slip_noColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsamountNull() {
-                return this.IsNull(this.tablepayment_summary.amountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetamountNull() {
-                this[this.tablepayment_summary.amountColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4683,6 +4650,7 @@ SELECT id, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, caution_mon
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "payment_details";
+            tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("admission_no", "admission_no");
             tableMapping.ColumnMappings.Add("bes", "bes");
             tableMapping.ColumnMappings.Add("rmi", "rmi");
@@ -4703,8 +4671,9 @@ SELECT id, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, caution_mon
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[payment_details] WHERE (([admission_no] = @Original_admission_no) AND ((@IsNull_bes = 1 AND [bes] IS NULL) OR ([bes] = @Original_bes)) AND ((@IsNull_rmi = 1 AND [rmi] IS NULL) OR ([rmi] = @Original_rmi)) AND ((@IsNull_ltt = 1 AND [ltt] IS NULL) OR ([ltt] = @Original_ltt)) AND ((@IsNull_adm = 1 AND [adm] IS NULL) OR ([adm] = @Original_adm)) AND ((@IsNull_ewc = 1 AND [ewc] IS NULL) OR ([ewc] = @Original_ewc)) AND ((@IsNull_medical = 1 AND [medical] IS NULL) OR ([medical] = @Original_medical)) AND ((@IsNull_pe = 1 AND [pe] IS NULL) OR ([pe] = @Original_pe)) AND ((@IsNull_bog = 1 AND [bog] IS NULL) OR ([bog] = @Original_bog)) AND ((@IsNull_pta = 1 AND [pta] IS NULL) OR ([pta] = @Original_pta)) AND ((@IsNull_activity = 1 AND [activity] IS NULL) OR ([activity] = @Original_activity)) AND ((@IsNull_caution_money = 1 AND [caution_money] IS NULL) OR ([caution_money] = @Original_caution_money)) AND ((@IsNull_mentorship = 1 AND [mentorship] IS NULL) OR ([mentorship] = @Original_mentorship)) AND ((@IsNull_district_mock = 1 AND [district_mock] IS NULL) OR ([district_mock] = @Original_district_mock)) AND ((@IsNull_form = 1 AND [form] IS NULL) OR ([form] = @Original_form)) AND ((@IsNull_term = 1 AND [term] IS NULL) OR ([term] = @Original_term)) AND ((@IsNull_total = 1 AND [total] IS NULL) OR ([total] = @Original_total)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[payment_details] WHERE (([id] = @Original_id) AND ([admission_no] = @Original_admission_no) AND ((@IsNull_bes = 1 AND [bes] IS NULL) OR ([bes] = @Original_bes)) AND ((@IsNull_rmi = 1 AND [rmi] IS NULL) OR ([rmi] = @Original_rmi)) AND ((@IsNull_ltt = 1 AND [ltt] IS NULL) OR ([ltt] = @Original_ltt)) AND ((@IsNull_adm = 1 AND [adm] IS NULL) OR ([adm] = @Original_adm)) AND ((@IsNull_ewc = 1 AND [ewc] IS NULL) OR ([ewc] = @Original_ewc)) AND ((@IsNull_medical = 1 AND [medical] IS NULL) OR ([medical] = @Original_medical)) AND ((@IsNull_pe = 1 AND [pe] IS NULL) OR ([pe] = @Original_pe)) AND ((@IsNull_bog = 1 AND [bog] IS NULL) OR ([bog] = @Original_bog)) AND ((@IsNull_pta = 1 AND [pta] IS NULL) OR ([pta] = @Original_pta)) AND ((@IsNull_activity = 1 AND [activity] IS NULL) OR ([activity] = @Original_activity)) AND ((@IsNull_caution_money = 1 AND [caution_money] IS NULL) OR ([caution_money] = @Original_caution_money)) AND ((@IsNull_mentorship = 1 AND [mentorship] IS NULL) OR ([mentorship] = @Original_mentorship)) AND ((@IsNull_district_mock = 1 AND [district_mock] IS NULL) OR ([district_mock] = @Original_district_mock)) AND ([form] = @Original_form) AND ([term] = @Original_term) AND ((@IsNull_total = 1 AND [total] IS NULL) OR ([total] = @Original_total)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_admission_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "admission_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_bes", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bes", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bes", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bes", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4732,16 +4701,14 @@ SELECT id, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, caution_mon
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_mentorship", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "mentorship", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_district_mock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "district_mock", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_district_mock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "district_mock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_form", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "form", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_form", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "form", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_term", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "term", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_term", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "term", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_total", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_total", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[payment_details] ([admission_no], [bes], [rmi], [ltt], [adm], [ewc], [medical], [pe], [bog], [pta], [activity], [caution_money], [mentorship], [district_mock], [form], [term], [total]) VALUES (@admission_no, @bes, @rmi, @ltt, @adm, @ewc, @medical, @pe, @bog, @pta, @activity, @caution_money, @mentorship, @district_mock, @form, @term, @total);
-SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, caution_money, mentorship, district_mock, form, term, total FROM payment_details WHERE (admission_no = @admission_no)";
+SELECT id, admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, caution_money, mentorship, district_mock, form, term, total FROM payment_details WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@admission_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "admission_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bes", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4766,26 +4733,25 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
                 "[rmi] = @rmi, [ltt] = @ltt, [adm] = @adm, [ewc] = @ewc, [medical] = @medical, [p" +
                 "e] = @pe, [bog] = @bog, [pta] = @pta, [activity] = @activity, [caution_money] = " +
                 "@caution_money, [mentorship] = @mentorship, [district_mock] = @district_mock, [f" +
-                "orm] = @form, [term] = @term, [total] = @total WHERE (([admission_no] = @Origina" +
-                "l_admission_no) AND ((@IsNull_bes = 1 AND [bes] IS NULL) OR ([bes] = @Original_b" +
-                "es)) AND ((@IsNull_rmi = 1 AND [rmi] IS NULL) OR ([rmi] = @Original_rmi)) AND ((" +
-                "@IsNull_ltt = 1 AND [ltt] IS NULL) OR ([ltt] = @Original_ltt)) AND ((@IsNull_adm" +
-                " = 1 AND [adm] IS NULL) OR ([adm] = @Original_adm)) AND ((@IsNull_ewc = 1 AND [e" +
-                "wc] IS NULL) OR ([ewc] = @Original_ewc)) AND ((@IsNull_medical = 1 AND [medical]" +
-                " IS NULL) OR ([medical] = @Original_medical)) AND ((@IsNull_pe = 1 AND [pe] IS N" +
-                "ULL) OR ([pe] = @Original_pe)) AND ((@IsNull_bog = 1 AND [bog] IS NULL) OR ([bog" +
-                "] = @Original_bog)) AND ((@IsNull_pta = 1 AND [pta] IS NULL) OR ([pta] = @Origin" +
-                "al_pta)) AND ((@IsNull_activity = 1 AND [activity] IS NULL) OR ([activity] = @Or" +
-                "iginal_activity)) AND ((@IsNull_caution_money = 1 AND [caution_money] IS NULL) O" +
-                "R ([caution_money] = @Original_caution_money)) AND ((@IsNull_mentorship = 1 AND " +
-                "[mentorship] IS NULL) OR ([mentorship] = @Original_mentorship)) AND ((@IsNull_di" +
-                "strict_mock = 1 AND [district_mock] IS NULL) OR ([district_mock] = @Original_dis" +
-                "trict_mock)) AND ((@IsNull_form = 1 AND [form] IS NULL) OR ([form] = @Original_f" +
-                "orm)) AND ((@IsNull_term = 1 AND [term] IS NULL) OR ([term] = @Original_term)) A" +
-                "ND ((@IsNull_total = 1 AND [total] IS NULL) OR ([total] = @Original_total)));\r\nS" +
-                "ELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, ca" +
-                "ution_money, mentorship, district_mock, form, term, total FROM payment_details W" +
-                "HERE (admission_no = @admission_no)";
+                "orm] = @form, [term] = @term, [total] = @total WHERE (([id] = @Original_id) AND " +
+                "([admission_no] = @Original_admission_no) AND ((@IsNull_bes = 1 AND [bes] IS NUL" +
+                "L) OR ([bes] = @Original_bes)) AND ((@IsNull_rmi = 1 AND [rmi] IS NULL) OR ([rmi" +
+                "] = @Original_rmi)) AND ((@IsNull_ltt = 1 AND [ltt] IS NULL) OR ([ltt] = @Origin" +
+                "al_ltt)) AND ((@IsNull_adm = 1 AND [adm] IS NULL) OR ([adm] = @Original_adm)) AN" +
+                "D ((@IsNull_ewc = 1 AND [ewc] IS NULL) OR ([ewc] = @Original_ewc)) AND ((@IsNull" +
+                "_medical = 1 AND [medical] IS NULL) OR ([medical] = @Original_medical)) AND ((@I" +
+                "sNull_pe = 1 AND [pe] IS NULL) OR ([pe] = @Original_pe)) AND ((@IsNull_bog = 1 A" +
+                "ND [bog] IS NULL) OR ([bog] = @Original_bog)) AND ((@IsNull_pta = 1 AND [pta] IS" +
+                " NULL) OR ([pta] = @Original_pta)) AND ((@IsNull_activity = 1 AND [activity] IS " +
+                "NULL) OR ([activity] = @Original_activity)) AND ((@IsNull_caution_money = 1 AND " +
+                "[caution_money] IS NULL) OR ([caution_money] = @Original_caution_money)) AND ((@" +
+                "IsNull_mentorship = 1 AND [mentorship] IS NULL) OR ([mentorship] = @Original_men" +
+                "torship)) AND ((@IsNull_district_mock = 1 AND [district_mock] IS NULL) OR ([dist" +
+                "rict_mock] = @Original_district_mock)) AND ([form] = @Original_form) AND ([term]" +
+                " = @Original_term) AND ((@IsNull_total = 1 AND [total] IS NULL) OR ([total] = @O" +
+                "riginal_total)));\r\nSELECT id, admission_no, bes, rmi, ltt, adm, ewc, medical, pe" +
+                ", bog, pta, activity, caution_money, mentorship, district_mock, form, term, tota" +
+                "l FROM payment_details WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@admission_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "admission_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bes", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4804,6 +4770,7 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@form", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "form", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@term", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "term", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@total", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_admission_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "admission_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_bes", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bes", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bes", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bes", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4831,12 +4798,11 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_mentorship", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "mentorship", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_district_mock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "district_mock", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_district_mock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "district_mock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_form", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "form", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_form", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "form", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_term", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "term", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_term", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "term", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_total", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_total", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "total", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4852,9 +4818,9 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, ca" +
-                "ution_money, mentorship, district_mock, form, term, total FROM dbo.payment_detai" +
-                "ls";
+            this._commandCollection[0].CommandText = "SELECT id, admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity" +
+                ", caution_money, mentorship, district_mock, form, term, total FROM dbo.payment_d" +
+                "etails";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4916,6 +4882,7 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(
+                    int Original_id, 
                     int Original_admission_no, 
                     global::System.Nullable<int> Original_bes, 
                     global::System.Nullable<int> Original_rmi, 
@@ -4930,137 +4897,124 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
                     global::System.Nullable<int> Original_caution_money, 
                     global::System.Nullable<int> Original_mentorship, 
                     global::System.Nullable<int> Original_district_mock, 
-                    global::System.Nullable<int> Original_form, 
-                    global::System.Nullable<int> Original_term, 
+                    int Original_form, 
+                    int Original_term, 
                     global::System.Nullable<int> Original_total) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_admission_no));
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_admission_no));
             if ((Original_bes.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_bes.Value));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_bes.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((Original_rmi.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_rmi.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_rmi.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             if ((Original_ltt.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_ltt.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_ltt.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             if ((Original_adm.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_adm.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_adm.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_ewc.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_ewc.Value));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(Original_ewc.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Original_medical.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_medical.Value));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((int)(Original_medical.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             if ((Original_pe.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_pe.Value));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((int)(Original_pe.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             if ((Original_bog.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_bog.Value));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((int)(Original_bog.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             if ((Original_pta.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_pta.Value));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((int)(Original_pta.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             if ((Original_activity.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((int)(Original_activity.Value));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((int)(Original_activity.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             if ((Original_caution_money.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((int)(Original_caution_money.Value));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((int)(Original_caution_money.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             if ((Original_mentorship.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((int)(Original_mentorship.Value));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((int)(Original_mentorship.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             if ((Original_district_mock.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((int)(Original_district_mock.Value));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((int)(Original_district_mock.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((Original_form.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((int)(Original_form.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            if ((Original_term.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((int)(Original_term.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.DeleteCommand.Parameters[28].Value = ((int)(Original_form));
+            this.Adapter.DeleteCommand.Parameters[29].Value = ((int)(Original_term));
             if ((Original_total.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((int)(Original_total.Value));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((int)(Original_total.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5097,8 +5051,8 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
                     global::System.Nullable<int> caution_money, 
                     global::System.Nullable<int> mentorship, 
                     global::System.Nullable<int> district_mock, 
-                    global::System.Nullable<int> form, 
-                    global::System.Nullable<int> term, 
+                    int form, 
+                    int term, 
                     global::System.Nullable<int> total) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(admission_no));
             if ((bes.HasValue == true)) {
@@ -5179,18 +5133,8 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
             else {
                 this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((form.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((int)(form.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((term.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((int)(term.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[14].Value = ((int)(form));
+            this.Adapter.InsertCommand.Parameters[15].Value = ((int)(term));
             if ((total.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[16].Value = ((int)(total.Value));
             }
@@ -5232,9 +5176,10 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
                     global::System.Nullable<int> caution_money, 
                     global::System.Nullable<int> mentorship, 
                     global::System.Nullable<int> district_mock, 
-                    global::System.Nullable<int> form, 
-                    global::System.Nullable<int> term, 
+                    int form, 
+                    int term, 
                     global::System.Nullable<int> total, 
+                    int Original_id, 
                     int Original_admission_no, 
                     global::System.Nullable<int> Original_bes, 
                     global::System.Nullable<int> Original_rmi, 
@@ -5249,9 +5194,10 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
                     global::System.Nullable<int> Original_caution_money, 
                     global::System.Nullable<int> Original_mentorship, 
                     global::System.Nullable<int> Original_district_mock, 
-                    global::System.Nullable<int> Original_form, 
-                    global::System.Nullable<int> Original_term, 
-                    global::System.Nullable<int> Original_total) {
+                    int Original_form, 
+                    int Original_term, 
+                    global::System.Nullable<int> Original_total, 
+                    int id) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(admission_no));
             if ((bes.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(bes.Value));
@@ -5331,153 +5277,131 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((form.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(form.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((term.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(term.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(form));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(term));
             if ((total.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(total.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_admission_no));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_admission_no));
             if ((Original_bes.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_bes.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_bes.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             if ((Original_rmi.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_rmi.Value));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_rmi.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             if ((Original_ltt.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_ltt.Value));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_ltt.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             if ((Original_adm.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_adm.Value));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_adm.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             if ((Original_ewc.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_ewc.Value));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_ewc.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             if ((Original_medical.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_medical.Value));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_medical.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             if ((Original_pe.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(Original_pe.Value));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_pe.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             if ((Original_bog.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_bog.Value));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_bog.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             if ((Original_pta.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_pta.Value));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_pta.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             if ((Original_activity.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(Original_activity.Value));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(Original_activity.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
             if ((Original_caution_money.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_caution_money.Value));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(Original_caution_money.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
             if ((Original_mentorship.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((int)(Original_mentorship.Value));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((int)(Original_mentorship.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
             if ((Original_district_mock.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((int)(Original_district_mock.Value));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(Original_district_mock.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
-            if ((Original_form.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((int)(Original_form.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
-            }
-            if ((Original_term.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((int)(Original_term.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[45].Value = ((int)(Original_form));
+            this.Adapter.UpdateCommand.Parameters[46].Value = ((int)(Original_term));
             if ((Original_total.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((int)(Original_total.Value));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((int)(Original_total.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
+            this.Adapter.UpdateCommand.Parameters[49].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5499,6 +5423,7 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
+                    int admission_no, 
                     global::System.Nullable<int> bes, 
                     global::System.Nullable<int> rmi, 
                     global::System.Nullable<int> ltt, 
@@ -5512,9 +5437,10 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
                     global::System.Nullable<int> caution_money, 
                     global::System.Nullable<int> mentorship, 
                     global::System.Nullable<int> district_mock, 
-                    global::System.Nullable<int> form, 
-                    global::System.Nullable<int> term, 
+                    int form, 
+                    int term, 
                     global::System.Nullable<int> total, 
+                    int Original_id, 
                     int Original_admission_no, 
                     global::System.Nullable<int> Original_bes, 
                     global::System.Nullable<int> Original_rmi, 
@@ -5529,10 +5455,10 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
                     global::System.Nullable<int> Original_caution_money, 
                     global::System.Nullable<int> Original_mentorship, 
                     global::System.Nullable<int> Original_district_mock, 
-                    global::System.Nullable<int> Original_form, 
-                    global::System.Nullable<int> Original_term, 
+                    int Original_form, 
+                    int Original_term, 
                     global::System.Nullable<int> Original_total) {
-            return this.Update(Original_admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, caution_money, mentorship, district_mock, form, term, total, Original_admission_no, Original_bes, Original_rmi, Original_ltt, Original_adm, Original_ewc, Original_medical, Original_pe, Original_bog, Original_pta, Original_activity, Original_caution_money, Original_mentorship, Original_district_mock, Original_form, Original_term, Original_total);
+            return this.Update(admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, caution_money, mentorship, district_mock, form, term, total, Original_id, Original_admission_no, Original_bes, Original_rmi, Original_ltt, Original_adm, Original_ewc, Original_medical, Original_pe, Original_bog, Original_pta, Original_activity, Original_caution_money, Original_mentorship, Original_district_mock, Original_form, Original_term, Original_total, Original_id);
         }
     }
     
@@ -5667,7 +5593,7 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[payment_summary] WHERE (([admission_no] = @Original_admission_no) AND ((@IsNull_type = 1 AND [type] IS NULL) OR ([type] = @Original_type)) AND ((@IsNull_check_number = 1 AND [check_number] IS NULL) OR ([check_number] = @Original_check_number)) AND ([receipt_no] = @Original_receipt_no) AND ((@IsNull_purpose = 1 AND [purpose] IS NULL) OR ([purpose] = @Original_purpose)) AND ((@IsNull_slip_no = 1 AND [slip_no] IS NULL) OR ([slip_no] = @Original_slip_no)) AND ((@IsNull_amount = 1 AND [amount] IS NULL) OR ([amount] = @Original_amount)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[payment_summary] WHERE (([admission_no] = @Original_admission_no) AND ((@IsNull_type = 1 AND [type] IS NULL) OR ([type] = @Original_type)) AND ((@IsNull_check_number = 1 AND [check_number] IS NULL) OR ([check_number] = @Original_check_number)) AND ([receipt_no] = @Original_receipt_no) AND ((@IsNull_purpose = 1 AND [purpose] IS NULL) OR ([purpose] = @Original_purpose)) AND ((@IsNull_slip_no = 1 AND [slip_no] IS NULL) OR ([slip_no] = @Original_slip_no)) AND ([amount] = @Original_amount))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_admission_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "admission_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -5679,29 +5605,26 @@ SELECT admission_no, bes, rmi, ltt, adm, ewc, medical, pe, bog, pta, activity, c
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_purpose", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "purpose", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_slip_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_no", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_slip_no", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_amount", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[payment_summary] ([admission_no], [type], [check_number], [receipt_no], [purpose], [slip_no], [amount]) VALUES (@admission_no, @type, @check_number, @receipt_no, @purpose, @slip_no, @amount);
-SELECT admission_no, type, check_number, receipt_no, purpose, slip_no, amount FROM payment_summary WHERE (admission_no = @admission_no)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[payment_summary] ([admission_no], [type], [check_number], [purpose], [slip_no], [amount]) VALUES (@admission_no, @type, @check_number, @purpose, @slip_no, @amount);
+SELECT admission_no, type, check_number, receipt_no, purpose, slip_no, amount FROM payment_summary WHERE (receipt_no = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@admission_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "admission_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@check_number", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "check_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@receipt_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "receipt_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@purpose", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "purpose", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_no", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@amount", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[payment_summary] SET [admission_no] = @admission_no, [type] = @type, [check_number] = @check_number, [receipt_no] = @receipt_no, [purpose] = @purpose, [slip_no] = @slip_no, [amount] = @amount WHERE (([admission_no] = @Original_admission_no) AND ((@IsNull_type = 1 AND [type] IS NULL) OR ([type] = @Original_type)) AND ((@IsNull_check_number = 1 AND [check_number] IS NULL) OR ([check_number] = @Original_check_number)) AND ([receipt_no] = @Original_receipt_no) AND ((@IsNull_purpose = 1 AND [purpose] IS NULL) OR ([purpose] = @Original_purpose)) AND ((@IsNull_slip_no = 1 AND [slip_no] IS NULL) OR ([slip_no] = @Original_slip_no)) AND ((@IsNull_amount = 1 AND [amount] IS NULL) OR ([amount] = @Original_amount)));
-SELECT admission_no, type, check_number, receipt_no, purpose, slip_no, amount FROM payment_summary WHERE (admission_no = @admission_no)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[payment_summary] SET [admission_no] = @admission_no, [type] = @type, [check_number] = @check_number, [purpose] = @purpose, [slip_no] = @slip_no, [amount] = @amount WHERE (([admission_no] = @Original_admission_no) AND ((@IsNull_type = 1 AND [type] IS NULL) OR ([type] = @Original_type)) AND ((@IsNull_check_number = 1 AND [check_number] IS NULL) OR ([check_number] = @Original_check_number)) AND ([receipt_no] = @Original_receipt_no) AND ((@IsNull_purpose = 1 AND [purpose] IS NULL) OR ([purpose] = @Original_purpose)) AND ((@IsNull_slip_no = 1 AND [slip_no] IS NULL) OR ([slip_no] = @Original_slip_no)) AND ([amount] = @Original_amount));
+SELECT admission_no, type, check_number, receipt_no, purpose, slip_no, amount FROM payment_summary WHERE (receipt_no = @receipt_no)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@admission_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "admission_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@check_number", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "check_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@receipt_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "receipt_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@purpose", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "purpose", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@slip_no", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@amount", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5715,8 +5638,8 @@ SELECT admission_no, type, check_number, receipt_no, purpose, slip_no, amount FR
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_purpose", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "purpose", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_slip_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_no", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_slip_no", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "slip_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_amount", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@receipt_no", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "receipt_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5794,7 +5717,7 @@ SELECT admission_no, type, check_number, receipt_no, purpose, slip_no, amount FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_admission_no, string Original_type, string Original_check_number, global::System.Nullable<int> Original_receipt_no, string Original_purpose, string Original_slip_no, string Original_amount) {
+        public virtual int Delete(int Original_admission_no, string Original_type, string Original_check_number, int Original_receipt_no, string Original_purpose, string Original_slip_no, string Original_amount) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_admission_no));
             if ((Original_type == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -5812,12 +5735,7 @@ SELECT admission_no, type, check_number, receipt_no, purpose, slip_no, amount FR
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_check_number));
             }
-            if ((Original_receipt_no.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_receipt_no.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_receipt_no));
             if ((Original_purpose == null)) {
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
@@ -5835,12 +5753,10 @@ SELECT admission_no, type, check_number, receipt_no, purpose, slip_no, amount FR
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_slip_no));
             }
             if ((Original_amount == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_amount");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_amount));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_amount));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5862,7 +5778,7 @@ SELECT admission_no, type, check_number, receipt_no, purpose, slip_no, amount FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int admission_no, string type, string check_number, global::System.Nullable<int> receipt_no, string purpose, string slip_no, string amount) {
+        public virtual int Insert(int admission_no, string type, string check_number, string purpose, string slip_no, string amount) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(admission_no));
             if ((type == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -5876,29 +5792,23 @@ SELECT admission_no, type, check_number, receipt_no, purpose, slip_no, amount FR
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(check_number));
             }
-            if ((receipt_no.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(receipt_no.Value));
-            }
-            else {
+            if ((purpose == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((purpose == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(purpose));
+            }
+            if ((slip_no == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(purpose));
-            }
-            if ((slip_no == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(slip_no));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(slip_no));
             }
             if ((amount == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("amount");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(amount));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(amount));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5920,7 +5830,7 @@ SELECT admission_no, type, check_number, receipt_no, purpose, slip_no, amount FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int admission_no, string type, string check_number, global::System.Nullable<int> receipt_no, string purpose, string slip_no, string amount, int Original_admission_no, string Original_type, string Original_check_number, global::System.Nullable<int> Original_receipt_no, string Original_purpose, string Original_slip_no, string Original_amount) {
+        public virtual int Update(int admission_no, string type, string check_number, string purpose, string slip_no, string amount, int Original_admission_no, string Original_type, string Original_check_number, int Original_receipt_no, string Original_purpose, string Original_slip_no, string Original_amount, int receipt_no) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(admission_no));
             if ((type == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -5934,77 +5844,65 @@ SELECT admission_no, type, check_number, receipt_no, purpose, slip_no, amount FR
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(check_number));
             }
-            if ((receipt_no.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(receipt_no.Value));
-            }
-            else {
+            if ((purpose == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((purpose == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(purpose));
+            }
+            if ((slip_no == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(purpose));
-            }
-            if ((slip_no == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(slip_no));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(slip_no));
             }
             if ((amount == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("amount");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(amount));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(amount));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_admission_no));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_admission_no));
             if ((Original_type == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_type));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_type));
             }
             if ((Original_check_number == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_check_number));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_check_number));
             }
-            if ((Original_receipt_no.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_receipt_no.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_receipt_no));
             if ((Original_purpose == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_purpose));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_purpose));
             }
             if ((Original_slip_no == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_slip_no));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_slip_no));
             }
             if ((Original_amount == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_amount");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_amount));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_amount));
             }
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(receipt_no));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6025,8 +5923,8 @@ SELECT admission_no, type, check_number, receipt_no, purpose, slip_no, amount FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string type, string check_number, global::System.Nullable<int> receipt_no, string purpose, string slip_no, string amount, int Original_admission_no, string Original_type, string Original_check_number, global::System.Nullable<int> Original_receipt_no, string Original_purpose, string Original_slip_no, string Original_amount) {
-            return this.Update(Original_admission_no, type, check_number, receipt_no, purpose, slip_no, amount, Original_admission_no, Original_type, Original_check_number, Original_receipt_no, Original_purpose, Original_slip_no, Original_amount);
+        public virtual int Update(int admission_no, string type, string check_number, string purpose, string slip_no, string amount, int Original_admission_no, string Original_type, string Original_check_number, int Original_receipt_no, string Original_purpose, string Original_slip_no, string Original_amount) {
+            return this.Update(admission_no, type, check_number, purpose, slip_no, amount, Original_admission_no, Original_type, Original_check_number, Original_receipt_no, Original_purpose, Original_slip_no, Original_amount, Original_receipt_no);
         }
     }
     

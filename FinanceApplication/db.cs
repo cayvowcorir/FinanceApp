@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinanceApplication
 {
-    class db
+    class Db
     {
         
 

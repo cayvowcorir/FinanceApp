@@ -30,7 +30,7 @@
                 <StackPanel Margin="50,5,5,5" HorizontalAlignment="Left">
                     <Button Click="Back_Btn_Click" Background="Transparent" BorderBrush="Transparent">
                         <Grid>
-                            <Grid Name="backgroundGrid" Width="80" Height="80" Visibility="Visible">
+                            <Grid Name="BackgroundGrid" Width="80" Height="80" Visibility="Visible">
                                 <Path Data="M50.5,4.7500001C25.232973,4.75 4.75,25.232973 4.7500001,50.5 4.75,75.767029 25.232973,96.25 50.5,96.25 75.767029,96.25 96.25,75.767029 96.25,50.5 96.25,25.232973 75.767029,4.75 50.5,4.7500001z M50.5,0C78.390381,0 101,22.609621 101,50.5 101,78.390381 78.390381,101 50.5,101 22.609621,101 0,78.390381 0,50.5 0,22.609621 22.609621,0 50.5,0z" Stretch="Fill" Fill="#FFFFFFFF" Name="Stroke" Visibility="Visible" />
                             </Grid>
                             <Path Data="M100.661972687318,0L147.487023041322,0 63.3680083013314,79.771056062702 285.305016205384,79.771056062702 285.305016205384,111.138052827839 63.3680083013314,111.138052827839 147.487023041322,190.909117586139 146.885170624329,191.501006013874 101.277153656556,191.501006013874 23.4035479284066,117.648421175007 0,95.4545582599676z" Stretch="Uniform" Fill="#FFFFFFFF" Width="44" Height="44" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
@@ -60,7 +60,7 @@
                                 <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" IsEnabled="False" Margin="0,20,-3,0">Fee Structure</Button>
                                 <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">School Account</Button>
                                 <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Votehead Distribution</Button>
-                                <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Summary</Button>
+                                <Button Click="EnterPayment_Btn_click"  FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Enter Payment</Button>
                                 <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Logout</Button>
                                 <Button Click="Close_Button_Click" FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Exit</Button>
                             </StackPanel>
@@ -81,14 +81,14 @@
                                         <ScrollViewer MaxHeight="500">
                                             <StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="20,20,20,0">
-                                                    <ComboBox FontSize="15" Name="Form_Selector" Width="80px" SelectionChanged="Form_Selector_SelectionChanged">
+                                                    <ComboBox FontSize="15" Name="FormSelector" Width="80px" SelectionChanged="Form_Selector_SelectionChanged">
                                                         <ComboBoxItem Background="#0574AA" IsSelected="True">Form</ComboBoxItem>
                                                         <ComboBoxItem>Form 1</ComboBoxItem>
                                                         <ComboBoxItem>Form 2</ComboBoxItem>
                                                         <ComboBoxItem>Form 3</ComboBoxItem>
                                                         <ComboBoxItem>Form 4</ComboBoxItem>
                                                     </ComboBox>
-                                                    <ComboBox FontSize="15" Margin="10,0,0,0" Name="Term_Selector" Width="80px">
+                                                    <ComboBox FontSize="15" Margin="10,0,0,0" Name="TermSelector" Width="80px">
                                                         <ComboBoxItem Background="#0574AA" IsSelected="True">Term</ComboBoxItem>
                                                         <ComboBoxItem>Term 1</ComboBoxItem>
                                                         <ComboBoxItem>Term 2</ComboBoxItem>
@@ -98,47 +98,47 @@
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="20,15">
                                                     <Label FontSize="15" HorizontalContentAlignment="Center" BorderThickness="3" Background="#87CCEE" HorizontalAlignment="Left" Width="200px" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Content="B.E.S" />
-                                                    <TextBox IsEnabled="False" FontSize="15" x:Name="BES" HorizontalAlignment="Right" Width="300px"/>
+                                                    <TextBox IsEnabled="False" FontSize="15" x:Name="Bes" HorizontalAlignment="Right" Width="300px"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="20,0">
                                                     <Label FontSize="15" HorizontalContentAlignment="Center" BorderThickness="3" Background="#87CCEE" HorizontalAlignment="Left" Width="200px" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Content="R.M.I" />
-                                                    <TextBox IsEnabled="False" FontSize="15" Name="RMI"  HorizontalAlignment="Right" Width="300px"/>
+                                                    <TextBox IsEnabled="False" FontSize="15" Name="Rmi"  HorizontalAlignment="Right" Width="300px"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="20,15">
                                                     <Label FontSize="15" HorizontalContentAlignment="Center" BorderThickness="3" Background="#87CCEE" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Content="L.T.T" Width="200px" HorizontalAlignment="Left"/>
-                                                    <TextBox IsEnabled="False" FontSize="15" Name="LTT" HorizontalAlignment="Right" Width="300px"/>
+                                                    <TextBox IsEnabled="False" FontSize="15" Name="Ltt" HorizontalAlignment="Right" Width="300px"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="20,0">
                                                     <Label FontSize="15" HorizontalContentAlignment="Center" BorderThickness="3" Background="#87CCEE" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" HorizontalAlignment="Left" Width="200px" Content="A.D.M"/>
-                                                    <TextBox IsEnabled="False" FontSize="15" Name="ADM" HorizontalAlignment="Right" Width="300px"/>
+                                                    <TextBox IsEnabled="False" FontSize="15" Name="Adm" HorizontalAlignment="Right" Width="300px"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="20,15">
                                                     <Label FontSize="15" HorizontalContentAlignment="Center" BorderThickness="3" Background="#87CCEE" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Content="E.W.C" Width="200px" HorizontalAlignment="Left"/>
-                                                    <TextBox IsEnabled="False" FontSize="15" Name="EWC" HorizontalAlignment="Right" Width="300px"/>
+                                                    <TextBox IsEnabled="False" FontSize="15" Name="Ewc" HorizontalAlignment="Right" Width="300px"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="20,0">
                                                     <Label FontSize="15" HorizontalContentAlignment="Center" BorderThickness="3" Background="#87CCEE" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Content="MEDICAL" Width="200px" HorizontalAlignment="Left"/>
-                                                    <TextBox IsEnabled="False" FontSize="15" Name="MEDICAL" HorizontalAlignment="Right" Width="300px"/>
+                                                    <TextBox IsEnabled="False" FontSize="15" Name="Medical" HorizontalAlignment="Right" Width="300px"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="20,15">
                                                     <Label FontSize="15" HorizontalContentAlignment="Center" BorderThickness="3" Background="#87CCEE" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Content="P.E" Width="200px" HorizontalAlignment="Left"/>
-                                                    <TextBox IsEnabled="False" FontSize="15" Name="PE" HorizontalAlignment="Right" Width="300px"/>
+                                                    <TextBox IsEnabled="False" FontSize="15" Name="Pe" HorizontalAlignment="Right" Width="300px"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="20,0">
                                                     <Label FontSize="15" HorizontalContentAlignment="Center" BorderThickness="3" Background="#87CCEE" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Content="B.O.G(TRS)" Width="200px" HorizontalAlignment="Left"/>
-                                                    <TextBox IsEnabled="False" FontSize="15" Name="BOG" HorizontalAlignment="Right" Width="300px"/>
+                                                    <TextBox IsEnabled="False" FontSize="15" Name="Bog" HorizontalAlignment="Right" Width="300px"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="20,15">
                                                     <Label FontSize="15" HorizontalContentAlignment="Center" BorderThickness="3" Background="#87CCEE" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Content="P.T.A" Width="200px" HorizontalAlignment="Left"/>
-                                                    <TextBox IsEnabled="False" FontSize="15" Name="PTA" HorizontalAlignment="Right" Width="300px"/>
+                                                    <TextBox IsEnabled="False" FontSize="15" Name="Pta" HorizontalAlignment="Right" Width="300px"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="20,0">
                                                     <Label FontSize="15" HorizontalContentAlignment="Center" BorderThickness="3" Background="#87CCEE" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Content="ACTIVITY" Width="200px" HorizontalAlignment="Left"/>
-                                                    <TextBox IsEnabled="False" FontSize="15" Name="ACTIVITY" HorizontalAlignment="Right" Width="300px"/>
+                                                    <TextBox IsEnabled="False" FontSize="15" Name="Activity" HorizontalAlignment="Right" Width="300px"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="20,15">
                                                     <Label FontSize="15" HorizontalContentAlignment="Center" BorderThickness="3" Background="#87CCEE" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Content="MENTORSHIP" Width="200px" HorizontalAlignment="Left"/>
-                                                    <TextBox IsEnabled="False" FontSize="15" Name="MENTORSHIP" HorizontalAlignment="Right" Width="300px"/>
+                                                    <TextBox IsEnabled="False" FontSize="15" Name="Mentorship" HorizontalAlignment="Right" Width="300px"/>
                                                 </StackPanel>
                                                 
                                             </StackPanel>

@@ -30,7 +30,7 @@
                 <StackPanel Margin="50,5,5,5" HorizontalAlignment="Left">
                     <Button Click="Back_Btn_Click" Background="Transparent" BorderBrush="Transparent">
                         <Grid>
-                            <Grid Name="backgroundGrid" Width="80" Height="80" Visibility="Visible">
+                            <Grid Name="BackgroundGrid" Width="80" Height="80" Visibility="Visible">
                                 <Path Data="M50.5,4.7500001C25.232973,4.75 4.75,25.232973 4.7500001,50.5 4.75,75.767029 25.232973,96.25 50.5,96.25 75.767029,96.25 96.25,75.767029 96.25,50.5 96.25,25.232973 75.767029,4.75 50.5,4.7500001z M50.5,0C78.390381,0 101,22.609621 101,50.5 101,78.390381 78.390381,101 50.5,101 22.609621,101 0,78.390381 0,50.5 0,22.609621 22.609621,0 50.5,0z" Stretch="Fill" Fill="#FFFFFFFF" Name="Stroke" Visibility="Visible" />
                             </Grid>
                             <Path Data="M100.661972687318,0L147.487023041322,0 63.3680083013314,79.771056062702 285.305016205384,79.771056062702 285.305016205384,111.138052827839 63.3680083013314,111.138052827839 147.487023041322,190.909117586139 146.885170624329,191.501006013874 101.277153656556,191.501006013874 23.4035479284066,117.648421175007 0,95.4545582599676z" Stretch="Uniform" Fill="#FFFFFFFF" Width="44" Height="44" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
@@ -60,7 +60,7 @@
                                 <Button Click="FeeStructure_Btn_Click" FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265"  Margin="0,20,-3,0">Fee Structure</Button>
                                 <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">School Account</Button>
                                 <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Votehead Distribution</Button>
-                                <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Enter Payment</Button>
+                                <Button Click="EnterPayment_Btn_Click" FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Enter Payment</Button>
                                 <Button FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Logout</Button>
                                 <Button Click="Close_Button_Click" FontSize="20" Foreground="White" BorderBrush="Transparent" Background="#676265" Margin="0,20,-3,0">Exit</Button>
                             </StackPanel>
@@ -86,38 +86,38 @@
                                                             <StackPanel Orientation="Vertical">
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Width="200" Background="#87CCEE">First Name</Label>
-                                                                    <TextBox Name="first_name" Margin="5,0,0,0" Width="300" Background="#FFE4E4E4"></TextBox>
+                                                                    <TextBox Name="FirstName" Margin="5,0,0,0" Width="300" Background="#FFE4E4E4"></TextBox>
                                                                 </StackPanel>
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Width="200" Background="#87CCEE">Last Name</Label>
-                                                                    <TextBox Name="last_name" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                    <TextBox Name="LastName" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
                                                                 </StackPanel>
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Background="#87CCEE" Width="200">DOB</Label>
-                                                                    <telerik:RadMaskedDateTimeInput Name="dob" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"/>
+                                                                    <telerik:RadMaskedDateTimeInput Name="Dob" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"/>
                                                                 </StackPanel>
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Background="#87CCEE" Width="200">Gender</Label>
-                                                                    <ComboBox Name="gender" Margin="5,0,0,0" Background="#FFE4E4E4">
+                                                                    <ComboBox Name="Gender" Margin="5,0,0,0" Background="#FFE4E4E4">
                                                                         <ComboBoxItem IsSelected="True">Male</ComboBoxItem>
                                                                         <ComboBoxItem>Female</ComboBoxItem>
                                                                     </ComboBox>
                                                                 </StackPanel>
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Background="#87CCEE" Width="200">Admission No.</Label>
-                                                                    <TextBox Name="adm_no" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                    <TextBox Name="AdmNo" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
                                                                 </StackPanel>
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Background="#87CCEE" Width="200">Admission Date.</Label>
-                                                                    <telerik:RadMaskedDateTimeInput Name="adm_date" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"/>
+                                                                    <telerik:RadMaskedDateTimeInput Name="AdmDate" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"/>
                                                                 </StackPanel>
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Background="#87CCEE" Width="200">Parent's Name</Label>
-                                                                    <TextBox Name="parent_name" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                    <TextBox Name="ParentName" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
                                                                 </StackPanel>
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Background="#87CCEE" Width="200">Parent's Contact</Label>
-                                                                    <TextBox Name="parent_contact" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                    <TextBox Name="ParentContact" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
                                                                 </StackPanel>
                                                                 <StackPanel HorizontalAlignment="Right" Margin="3" Orientation="Horizontal">
                                                                     <Button Width="150" Margin="5">
@@ -154,35 +154,35 @@
                                                             </StackPanel>
                                                         </Grid>
                                                     </TabItem>
-                                                    <TabItem Loaded="ViewStudents_Tab_Loaded" Header="View Students">
+                                                    <TabItem Name="ViewStudents" GotFocus="ViewStudents_Tab_GotFocus" Header="View Students">
                                                         <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="2" >
 
                                                             <DataGrid AlternatingRowBackground="#FFC9E9F9" AreRowDetailsFrozen="True" CanUserResizeRows="True" CanUserReorderColumns="True"
-                                                                        IsReadOnly="True" IsManipulationEnabled="False" Width="537" FontSize="15" Name="view_students_grid" ItemsSource="{Binding}"/>
+                                                                        IsReadOnly="True" IsManipulationEnabled="False" Width="537" FontSize="15" Name="ViewStudentsGrid" ItemsSource="{Binding}"/>
                                                         </ScrollViewer>
                                                     </TabItem>
-                                                    <TabItem x:Name="ModifyDetails" Header="Modify Details">
+                                                    <TabItem Header="Modify Details" Name="ModifyDetails">
                                                         <Grid Margin="10">
                                                             <StackPanel Orientation="Vertical">
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Background="#87CCEE" Width="200">Admission No.</Label>
-                                                                    <TextBox Name="adm_no_modify" TextChanged="StudentDetail_Tbx_KeyUp" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                    <TextBox Name="AdmNoModify" TextChanged="StudentDetail_Tbx_KeyUp" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
                                                                 </StackPanel>
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Width="200" Background="#87CCEE">First Name</Label>
-                                                                    <TextBox Name="first_name_modify" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                    <TextBox Name="FirstNameModify" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
                                                                 </StackPanel>
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Background="#87CCEE" Width="200">Last Name</Label>
-                                                                    <TextBox Name="last_name_modify" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                    <TextBox Name="LastNameModify" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
                                                                 </StackPanel>
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Background="#87CCEE" Width="200">DOB</Label>
-                                                                    <telerik:RadMaskedDateTimeInput Name="dob_modify" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"/>
+                                                                    <telerik:RadMaskedDateTimeInput Name="DobModify" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"/>
                                                                 </StackPanel>
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Background="#87CCEE" Width="200">Gender</Label>
-                                                                    <ComboBox Name="gender_modify" Margin="5,0,0,0" Background="#FFE4E4E4">
+                                                                    <ComboBox Name="GenderModify" Margin="5,0,0,0" Background="#FFE4E4E4">
                                                                         <ComboBoxItem IsSelected="True">Male</ComboBoxItem>
                                                                         <ComboBoxItem>Female</ComboBoxItem>
                                                                     </ComboBox>
@@ -190,16 +190,16 @@
 
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Background="#87CCEE" Width="200">Admission Date.</Label>
-                                                                    <telerik:RadMaskedDateTimeInput Name="adm_date_modify" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"/>
+                                                                    <telerik:RadMaskedDateTimeInput Name="AdmDateModify" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"/>
                                                                 </StackPanel>
 
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Background="#87CCEE" Width="200">Parent's Name</Label>
-                                                                    <TextBox Name="parent_name_modify" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                    <TextBox Name="ParentNameModify" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
                                                                 </StackPanel>
                                                                 <StackPanel Margin="3" Orientation="Horizontal">
                                                                     <Label Background="#87CCEE" Width="200">Parent's Contact</Label>
-                                                                    <TextBox Name="parent_contact_modify" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
+                                                                    <TextBox Name="ParentContactModify" Margin="5,0,0,0" Background="#FFE4E4E4" Width="300"></TextBox>
                                                                 </StackPanel>
                                                                 <StackPanel HorizontalAlignment="Right" Margin="3" Orientation="Horizontal">
                                                                     <Button Width="150" Margin="5">

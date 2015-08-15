@@ -20,17 +20,21 @@
         <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="2" Margin="10,0,-10,0" >
 
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                <StackPanel Orientation="Horizontal" Margin="20,0,10,0" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="-60,0,10,0" HorizontalAlignment="Center">
                     <StackPanel Orientation="Vertical">
                         <Grid>
                             <Grid Opacity="0.5" Margin="10" Width="400" Height="200" Cursor="Hand" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="39*"/>
+                                </Grid.ColumnDefinitions>
                                 <Grid.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="Black" Offset="0"/>
                                         <GradientStop Color="White" Offset="1"/>
                                     </LinearGradientBrush>
                                 </Grid.Background>
-                                <Button Click="ViewStudents_Btn_Click" Background="Transparent">
+                                <Button Click="ViewStudents_Btn_Click" Background="Transparent" Grid.ColumnSpan="2">
                                     <StackPanel Margin="15" Orientation="Horizontal">
                                         <Path Data="M46.993393,23.943999L59.015995,23.988299 48.235634,44.587999 43.847486,44.442102C45.44644,37.894094,41.112996,35.322671,41.112996,35.322671z M7.8475037,21.042001L9.3267117,21.042001C11.455616,21.042001,13.385201,21.891091,14.797991,23.267374L14.799292,23.260774C14.799292,23.260774,19.622255,27.932618,27.3578,38.359592L37.648124,38.359592C39.721009,38.359592 41.401997,40.039272 41.401997,42.112247 41.401997,44.185022 39.721009,45.866003 37.648124,45.866003L25.364314,45.866003C23.588327,45.866003,22.105337,44.631617,21.714642,42.975336L20.472549,41.401257 20.472549,45.837303 17.174274,45.837303 10.804621,45.837303 0,45.837303 0,28.891006C0,24.556359,3.5128632,21.042001,7.8475037,21.042001z M42.348834,17.822001L58.198,21.187689 45.648389,21.686373 38.404768,35.988 28.250998,35.9659 28.3513,31.44775 35.850125,31.710741z M9.7809772,0C14.994553,0 19.220999,4.2265148 19.220999,9.4400902 19.220999,14.653445 14.994553,18.880001 9.7809772,18.880001 4.5675812,18.880001 0.3409996,14.653445 0.3409996,9.4400902 0.3409996,4.2265148 4.5675812,0 9.7809772,0z" Stretch="Uniform" Fill="#FF000000" Width="138" Height="138" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
                                             <Path.RenderTransform>
@@ -42,7 +46,7 @@
                                                 </TransformGroup>
                                             </Path.RenderTransform>
                                         </Path>
-                                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Foreground="Black">View Students</Label>
+                                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Foreground="Black">Students</Label>
                                     </StackPanel>
                                 </Button>
                             </Grid>
@@ -58,20 +62,21 @@
                                         <GradientStop Color="White" Offset="1"/>
                                     </LinearGradientBrush>
                                 </Grid.Background>
-                                <StackPanel Margin="15" Orientation="Horizontal">
-                                    <Path Data="M0,4.1309996L20.362437,4.1309996C20.038338,4.8125897,19.782439,5.5301299,19.594339,6.2769008L2.1451931,6.2769008 2.1451931,23.445208 30.042807,23.445208 30.042807,20.78887C30.342306,20.81167 30.642406,20.834471 30.949104,20.834471 31.367603,20.834471 31.781102,20.81027 32.188001,20.76737L32.188001,25.590239 20.922435,25.590239 20.922435,27.736771 23.605427,27.736771 23.605427,29.882 8.5839529,29.882 8.5839529,27.736771 11.265565,27.736771 11.265565,25.590239 0,25.590239z M29.967411,3.9921243L29.967411,8.1359167 25.823251,8.1359167 25.823251,10.100034 29.967411,10.100034 29.967411,14.243865 31.931586,14.243865 31.931586,10.100034 36.075645,10.100034 36.075645,8.1359167 31.931586,8.1359167 31.931586,3.9921243z M30.948448,0C35.985142,1.0841802E-08 40.067997,4.0825729 40.067997,9.1171007 40.067997,14.153367 35.985142,18.236 30.948448,18.236 25.912456,18.236 21.830998,14.153367 21.830998,9.1171007 21.830998,4.0825729 25.912456,1.0841802E-08 30.948448,0z" Stretch="Uniform" Fill="#FF000000" Width="138" Height="138" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
-                                        <Path.RenderTransform>
-                                            <TransformGroup>
-                                                <TransformGroup.Children>
-                                                    <RotateTransform Angle="0" />
-                                                    <ScaleTransform ScaleX="1" ScaleY="1" />
-                                                </TransformGroup.Children>
-                                            </TransformGroup>
-                                        </Path.RenderTransform>
-                                    </Path>
-                                    <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Foreground="Black">Add Student</Label>
-                                </StackPanel>
-
+                                <Button Click="EnterPayment_Btn_Click" Background="Transparent" Grid.ColumnSpan="2">
+                                    <StackPanel Margin="15" Orientation="Horizontal">
+                                        <Path Data="M0,4.1309996L20.362437,4.1309996C20.038338,4.8125897,19.782439,5.5301299,19.594339,6.2769008L2.1451931,6.2769008 2.1451931,23.445208 30.042807,23.445208 30.042807,20.78887C30.342306,20.81167 30.642406,20.834471 30.949104,20.834471 31.367603,20.834471 31.781102,20.81027 32.188001,20.76737L32.188001,25.590239 20.922435,25.590239 20.922435,27.736771 23.605427,27.736771 23.605427,29.882 8.5839529,29.882 8.5839529,27.736771 11.265565,27.736771 11.265565,25.590239 0,25.590239z M29.967411,3.9921243L29.967411,8.1359167 25.823251,8.1359167 25.823251,10.100034 29.967411,10.100034 29.967411,14.243865 31.931586,14.243865 31.931586,10.100034 36.075645,10.100034 36.075645,8.1359167 31.931586,8.1359167 31.931586,3.9921243z M30.948448,0C35.985142,1.0841802E-08 40.067997,4.0825729 40.067997,9.1171007 40.067997,14.153367 35.985142,18.236 30.948448,18.236 25.912456,18.236 21.830998,14.153367 21.830998,9.1171007 21.830998,4.0825729 25.912456,1.0841802E-08 30.948448,0z" Stretch="Uniform" Fill="#FF000000" Width="138" Height="138" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <TransformGroup.Children>
+                                                        <RotateTransform Angle="0" />
+                                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                    </TransformGroup.Children>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" Foreground="Black">Enter Payment</Label>
+                                    </StackPanel>
+                                </Button>
                             </Grid>
                         </Grid>
                     </StackPanel>
@@ -84,7 +89,7 @@
                                         <GradientStop Color="White" Offset="1"/>
                                     </LinearGradientBrush>
                                 </Grid.Background>
-                                <Button Click="AddStudent_MenuItem_Click" Background="Transparent">
+                                <Button Background="Transparent">
                                     <StackPanel Margin="15" Orientation="Horizontal">
                                         <Path Data="M11.961001,32.591001L27.961,32.591001 27.961,38.352 11.961001,38.352z M41.431141,29.375001L46.286661,29.375001C51.203279,29.375001,55.316496,33.104243,56.395998,38.112L31.323,38.112C32.403814,33.104243,36.513142,29.375001,41.431141,29.375001z M11.961001,22.992001L27.961,22.992001 27.961,28.751 11.961001,28.751z M43.85944,14.016001C47.470053,14.016001 50.393,16.945526 50.393,20.549741 50.393,24.159045 47.470053,27.086 43.85944,27.086 40.250229,27.086 37.326,24.159045 37.326,20.549741 37.326,16.945526 40.250229,14.016001 43.85944,14.016001z M11.961001,13.39L27.961,13.39 27.961,19.151 11.961001,19.151z M6.4470005,6.6650009L6.4470005,45.109001 57.779001,45.109001 57.779001,6.6650009z M0,0L64.000002,0 64.000002,51.331001 0,51.331001z" Stretch="Uniform" Fill="#FF000000" Width="138" Height="138" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
                                             <Path.RenderTransform>
@@ -104,7 +109,7 @@
                         </Grid>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="20,0,10,0" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="-60,0,10,0" HorizontalAlignment="Center">
                     <StackPanel Orientation="Vertical">
                         <Grid>
                             <Grid Opacity="0.5" Margin="10" Width="400" Height="200" Cursor="Hand" >
@@ -195,7 +200,7 @@
                         </Grid>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="20,0,10,0" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="-60,0,10,0" HorizontalAlignment="Center">
                     <StackPanel Orientation="Vertical">
                         <Grid>
                             <Grid Opacity="0.5" Margin="10" Width="400" Height="200" Cursor="Hand" >

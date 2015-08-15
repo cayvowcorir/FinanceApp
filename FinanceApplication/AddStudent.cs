@@ -11,79 +11,91 @@ namespace FinanceApplication
 {
     class AddStudent
     {
-        private string firstName;
+        private string _firstName;
 
         public string FirstName
         {
-            get { return firstName; }
-            set { firstName = value; }
+            get { return _firstName; }
+            set { _firstName = value; }
         }
-        private string lastName;
+        private string _lastName;
 
         public string LastName
         {
-            get { return lastName; }
-            set { lastName = value; }
+            get { return _lastName; }
+            set { _lastName = value; }
         }
-        private DateTime dofBirth;
+        private DateTime _dofBirth;
 
         public string DofBirth
         {
-            get { return Convert.ToString(dofBirth); }
-            set { dofBirth = Convert.ToDateTime(value); }
+            get { return Convert.ToString(_dofBirth); }
+            set { _dofBirth = Convert.ToDateTime(value); }
         }
-        private string gender;
+        private string _gender;
 
         public string Gender
         {
-            get { return gender; }
-            set { gender = value; }
+            get { return _gender; }
+            set { _gender = value; }
         }
-        private DateTime admDate;
+        private DateTime _admDate;
 
         public string AdmDate
         {
-            get { return Convert.ToString(admDate); }
-            set { admDate = Convert.ToDateTime(value); }
+            get { return Convert.ToString(_admDate); }
+            set { _admDate = Convert.ToDateTime(value); }
         }
-        private string admNo;
+        private string _admNo;
 
         public string AdmNo
         {
-            get { return admNo.ToString(); }
-            set { admNo = value; }
+            get { return _admNo.ToString(); }
+            set { _admNo = value; }
         }
-        private string parentContact;
+        private string _parentContact;
 
         public string ParentContact
         {
-            get { return parentContact; }
-            set { parentContact = value; }
+            get { return _parentContact; }
+            set { _parentContact = value; }
         }
-        private string parentName;
+        private string _parentName;
 
         public string ParentName
         {
-            get { return parentName; }
-            set { parentName = value; }
+            get { return _parentName; }
+            set { _parentName = value; }
         }       
 
-        private string connectionString = Properties.Settings.Default.financeappConnectionString;
+        private string _connectionString = Properties.Settings.Default.financeappConnectionString;
         public void New()
         {
             
 
             try
             {
-                int Adm=Convert.ToInt32(AdmNo);
-                financeappDataSet fdataset = new financeappDataSet();
-                financeappDataSetTableAdapters.students_detailsTableAdapter fdatasetadapter = new financeappDataSetTableAdapters.students_detailsTableAdapter();
+                var adm=Convert.ToInt32(AdmNo);
+                var fdataset = new financeappDataSet();
+                var sdetailsAdapter = new financeappDataSetTableAdapters.students_detailsTableAdapter();
+                var pdetailsAdapter = new financeappDataSetTableAdapters.payment_detailsTableAdapter();
 
                 try
                 {
-                    fdatasetadapter.Insert(Convert.ToInt32(admNo), firstName, lastName, dofBirth, gender, admDate, parentName, parentContact);
-                    MessageBox.Show("The Student " + firstName + " has been added to the database");
-                    StudentView stv = new StudentView();
+                    sdetailsAdapter.Insert(Convert.ToInt32(_admNo), _firstName, _lastName, _dofBirth, _gender, _admDate, _parentName, _parentContact);
+                    
+                    //loop to initialize payment details of the new student from form 1-4 to 0 in db
+                    for (var count1 = 1; count1 < 5; count1++)
+                    {
+                        for (var count2 = 1; count2 < 4; count2++)
+                        {
+                            pdetailsAdapter.Insert(Convert.ToInt32(_admNo), 0, 0, 0, 0, 0, 0, 0,
+                                0, 0, 0, 0, 0, 0, count1, count2, 0);
+                        }
+                    }
+
+                    MessageBox.Show("The Student " + _firstName + " has been added to the database");
+                    var stv = new StudentView();
                     stv.PageClear();
                 }
                 catch (Exception e2)
@@ -101,25 +113,25 @@ namespace FinanceApplication
 
         }
 
-        public Dictionary<string, string> RetrieveDetails(string admission_no)
+        public Dictionary<string, string> RetrieveDetails(string admissionNo)
         {
-            string Adm = admission_no;
-            financeappDataSet fdset = new financeappDataSet();
-            financeappDataSetTableAdapters.students_detailsTableAdapter fadapter = new financeappDataSetTableAdapters.students_detailsTableAdapter();
+            var adm = admissionNo;
+            var fdset = new financeappDataSet();
+            var fadapter = new financeappDataSetTableAdapters.students_detailsTableAdapter();
             fadapter.Fill(fdset.students_details);
 
-            Dictionary<string, string> stdictionary=new Dictionary<string, string>();
-            int columncount=fdset.students_details.Columns.Count;
-            int count = 0;
-            var sqlwhere = "admission_no=" + Adm;
+            var stdictionary=new Dictionary<string, string>();
+            var columncount=fdset.students_details.Columns.Count;
+            var count = 0;
+            var sqlwhere = "admission_no=" + adm;
             try
             {
-                DataTable _newDataTable = fdset.students_details.Select(sqlwhere).CopyToDataTable();
-                DataRow row = _newDataTable.Rows[0];
+                var newDataTable = fdset.students_details.Select(sqlwhere).CopyToDataTable();
+                var row = newDataTable.Rows[0];
                 
                 while (count < columncount)
                 {
-                    stdictionary[_newDataTable.Columns[count].ToString()] = Convert.ToString(row[_newDataTable.Columns[count]]);
+                    stdictionary[newDataTable.Columns[count].ToString()] = Convert.ToString(row[newDataTable.Columns[count]]);
                     count++;
                 }
             }
@@ -137,19 +149,19 @@ namespace FinanceApplication
         {
             try
             {
-                int Adm = Convert.ToInt32(AdmNo);
-                financeappDataSet fdataset = new financeappDataSet();
-                financeappDataSetTableAdapters.students_detailsTableAdapter fdatasetadapter = new financeappDataSetTableAdapters.students_detailsTableAdapter();
+                var adm = Convert.ToInt32(AdmNo);
+                var fdataset = new financeappDataSet();
+                var fdatasetadapter = new financeappDataSetTableAdapters.students_detailsTableAdapter();
                 fdatasetadapter.Fill(fdataset.students_details);
-                var sqlwhere = "admission_no=" + Adm;
-                DataTable _newDataTable = fdataset.students_details.Select(sqlwhere).CopyToDataTable();
-                DataRow row = _newDataTable.Rows[0];
+                var sqlwhere = "admission_no=" + adm;
+                var newDataTable = fdataset.students_details.Select(sqlwhere).CopyToDataTable();
+                var row = newDataTable.Rows[0];
                 try
                 {
                     MessageBox.Show((Convert.ToInt32(row[0].ToString())).ToString());
                     //fdatasetadapter.Update(Convert.ToInt32(admNo), firstName, lastName, dofBirth, gender, admDate, parentName, parentContact);
                     MessageBox.Show("The Student " + row[0].ToString() + " has been added to the database");
-                    StudentView stv = new StudentView();
+                    var stv = new StudentView();
                     stv.PageClear();
                 }
                 catch (Exception e2)
