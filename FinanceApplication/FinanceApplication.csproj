@@ -112,12 +112,6 @@
     </ApplicationDefinition>
     <Compile Include="AddStudent.cs" />
     <Compile Include="FeeStructure.cs" />
-    <Compile Include="financeappDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>financeappDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="IService1.cs" />
     <Compile Include="LandingPage.xaml.cs">
       <DependentUpon>LandingPage.xaml</DependentUpon>
     </Compile>
@@ -125,17 +119,12 @@
       <DependentUpon>ModifyFeeStructure.xaml</DependentUpon>
     </Compile>
     <Compile Include="Payment.cs" />
-    <Compile Include="Service1.cs" />
     <Compile Include="StudentPaymentRecord.xaml.cs">
       <DependentUpon>StudentPaymentRecord.xaml</DependentUpon>
     </Compile>
     <Compile Include="StudentView.xaml.cs">
       <DependentUpon>StudentView.xaml</DependentUpon>
     </Compile>
-    <Page Include="FeeEntry.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="LandingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,10 +136,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="db.cs" />
-    <Compile Include="FeeEntry.xaml.cs">
-      <DependentUpon>FeeEntry.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -187,18 +172,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="financeappDataSet.xsc">
-      <DependentUpon>financeappDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="financeappDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>financeappDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="financeappDataSet.xss">
-      <DependentUpon>financeappDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="FinanceApplication_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
