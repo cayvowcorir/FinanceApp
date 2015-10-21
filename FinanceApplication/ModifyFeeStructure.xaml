@@ -81,7 +81,7 @@
                                         <ScrollViewer MaxHeight="500">
                                             <StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="20,20,20,0">
-                                                    <ComboBox FontSize="15" Name="FormSelector" Width="80px" SelectionChanged="Form_Selector_SelectionChanged">
+                                                    <ComboBox FontSize="15" Name="FormSelector" Width="80px" >
                                                         <ComboBoxItem Background="#0574AA" IsSelected="True">Form</ComboBoxItem>
                                                         <ComboBoxItem>Form 1</ComboBoxItem>
                                                         <ComboBoxItem>Form 2</ComboBoxItem>
@@ -155,7 +155,7 @@
                     </Grid>
                     <Grid Margin="0">
                         <StackPanel Margin="0,24,0,15" Width="378.15">
-                            <telerik:RadPaneGroup HorizontalAlignment="Stretch" VerticalAlignment="Center" SelectionChanged="RadPaneGroup_SelectionChanged_1">
+                            <telerik:RadPaneGroup HorizontalAlignment="Stretch" VerticalAlignment="Center">
                                 <telerik:RadPane Header="Add Votehead">                                    
                                     <StackPanel Orientation="Vertical">
                                         <StackPanel Margin="10,10,10,10" Orientation="Horizontal">
@@ -193,7 +193,7 @@
                                     </StackPanel>
                                 </telerik:RadPane>                                
                             </telerik:RadPaneGroup>
-                            <telerik:RadPaneGroup Margin="0,20,0,0" SelectionChanged="RadPaneGroup_SelectionChanged">
+                            <telerik:RadPaneGroup Margin="0,20,0,0">
                                 <telerik:RadPane Header="Remove Votehead">
                                     <Grid Margin="20">
                                         <StackPanel>
@@ -227,7 +227,7 @@
 
                                 </telerik:RadPane>
                             </telerik:RadPaneGroup>
-                            <telerik:RadPaneGroup Margin="0,20,0,0" SelectionChanged="RadPaneGroup_SelectionChanged">
+                            <telerik:RadPaneGroup Margin="0,20,0,0">
                                 <telerik:RadPane Header="Modify Votehead">
                                     <Grid Margin="5">
                                         <StackPanel>

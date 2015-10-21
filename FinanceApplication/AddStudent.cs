@@ -68,7 +68,6 @@ namespace FinanceApplication
             set { _parentName = value; }
         }       
 
-        private string _connectionString = Properties.Settings.Default.financeappConnectionString;
         public void New()
         {
             
@@ -76,9 +75,9 @@ namespace FinanceApplication
             try
             {
                 var adm=Convert.ToInt32(AdmNo);
-                var fdataset = new financeappDataSet();
-                var sdetailsAdapter = new financeappDataSetTableAdapters.students_detailsTableAdapter();
-                var pdetailsAdapter = new financeappDataSetTableAdapters.payment_detailsTableAdapter();
+                var fdataset = new financeapplicationDataSet();
+                var sdetailsAdapter = new financeapplicationDataSetTableAdapters.students_detailsTableAdapter();
+                var pdetailsAdapter = new financeapplicationDataSetTableAdapters.payment_detailsTableAdapter();
 
                 try
                 {
@@ -116,8 +115,8 @@ namespace FinanceApplication
         public Dictionary<string, string> RetrieveDetails(string admissionNo)
         {
             var adm = admissionNo;
-            var fdset = new financeappDataSet();
-            var fadapter = new financeappDataSetTableAdapters.students_detailsTableAdapter();
+            var fdset = new financeapplicationDataSet();
+            var fadapter = new financeapplicationDataSetTableAdapters.students_detailsTableAdapter();
             fadapter.Fill(fdset.students_details);
 
             var stdictionary=new Dictionary<string, string>();
@@ -150,8 +149,8 @@ namespace FinanceApplication
             try
             {
                 var adm = Convert.ToInt32(AdmNo);
-                var fdataset = new financeappDataSet();
-                var fdatasetadapter = new financeappDataSetTableAdapters.students_detailsTableAdapter();
+                var fdataset = new financeapplicationDataSet();
+                var fdatasetadapter = new financeapplicationDataSetTableAdapters.students_detailsTableAdapter();
                 fdatasetadapter.Fill(fdataset.students_details);
                 var sqlwhere = "admission_no=" + adm;
                 var newDataTable = fdataset.students_details.Select(sqlwhere).CopyToDataTable();

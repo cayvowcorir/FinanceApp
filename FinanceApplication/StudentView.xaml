@@ -158,7 +158,7 @@
                                                         <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="2" >
 
                                                             <DataGrid AlternatingRowBackground="#FFC9E9F9" AreRowDetailsFrozen="True" CanUserResizeRows="True" CanUserReorderColumns="True"
-                                                                        IsReadOnly="True" IsManipulationEnabled="False" Width="537" FontSize="15" Name="ViewStudentsGrid" ItemsSource="{Binding}"/>
+                                                                        IsReadOnly="True" IsManipulationEnabled="False" Width="537" Height="500"  FontSize="15" Name="ViewStudentsGrid" ItemsSource="{Binding}"/>
                                                         </ScrollViewer>
                                                     </TabItem>
                                                     <TabItem Header="Modify Details" Name="ModifyDetails">

@@ -28,61 +28,25 @@ namespace FinanceApplication
 
         }
 
-        private void Form_Selector_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Submit_btn_Click(object sender, RoutedEventArgs e)
-        {
-            /* 
-             * 
-             * To check if all the form and term fields have been selected
-             * 
-             * */
-            
-            
-        }
 
         private void StudentView_Btn_click(object sender, RoutedEventArgs e)
         {
-            NavigationService nav;
-            nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("StudentView.xaml", UriKind.RelativeOrAbsolute));
-
+            var nav = NavigationService.GetNavigationService(this);
+            nav?.Navigate(new Uri("StudentView.xaml", UriKind.RelativeOrAbsolute));
         }
+
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
             App.Current.Shutdown();
         }
 
-        private void RadPaneGroup_SelectionChanged(object sender, Telerik.Windows.Controls.RadSelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void RadPaneGroup_SelectionChanged_1(object sender, Telerik.Windows.Controls.RadSelectionChangedEventArgs e)
-        {
-
-        }
 
         private void Back_Btn_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                NavigationService.GoBack();
-            }
-            catch
-            {
-
-            }
-            
+            NavigationService?.GoBack();
+             
         }
 
-        private void RadPaneGroup_SelectionChanged_2(object sender, Telerik.Windows.Controls.RadSelectionChangedEventArgs e)
-        {
-
-        }
 
         private void LoadFeeStructure_Btn_Click(object sender, RoutedEventArgs e)
         {
@@ -164,10 +128,8 @@ namespace FinanceApplication
         
         private void EnterPayment_Btn_click(object sender, RoutedEventArgs e)
         {
-            NavigationService nav;
-            nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("StudentPaymentRecord.xaml", UriKind.RelativeOrAbsolute));
+            var nav = NavigationService.GetNavigationService(this);
+            nav?.Navigate(new Uri("StudentPaymentRecord.xaml", UriKind.RelativeOrAbsolute));
         }
-       
     }
 }

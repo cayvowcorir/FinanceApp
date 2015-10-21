@@ -16,13 +16,13 @@ namespace FinanceApplication
 
         public void MakePayment()
         {
-            var fdataset = new financeappDataSet();
+            var fdataset = new financeapplicationDataSet();
             var psummaryadapter =
-                new financeappDataSetTableAdapters.payment_summaryTableAdapter();
+                new financeapplicationDataSetTableAdapters.payment_summaryTableAdapter();
             var fstructureadapter =
-                new financeappDataSetTableAdapters.fee_structureTableAdapter();
+                new financeapplicationDataSetTableAdapters.fee_structureTableAdapter();
             var pdetailsadapter =
-                new financeappDataSetTableAdapters.payment_detailsTableAdapter();
+                new financeapplicationDataSetTableAdapters.payment_detailsTableAdapter();
 
             fstructureadapter.Fill(fdataset.fee_structure);
             psummaryadapter.Fill(fdataset.payment_summary);
@@ -34,7 +34,8 @@ namespace FinanceApplication
                 case "Check":
                     try
                     {
-                        psummaryadapter.Insert(Convert.ToInt32(AdmNo), Type, SlipCheckNo, Purpose, null, Amount.ToString());
+                        psummaryadapter.Insert(Convert.ToInt32(AdmNo), Type, SlipCheckNo, Purpose, null,
+                            Amount.ToString());
                         MessageBox.Show("The Entry has been added to the database");
                         var str = new StudentPaymentRecord();
                         str.PageClear();
@@ -49,7 +50,8 @@ namespace FinanceApplication
                 case "Bank Slip":
                     try
                     {
-                        psummaryadapter.Insert(Convert.ToInt32(AdmNo), Type, null, Purpose, SlipCheckNo, Amount.ToString());
+                        psummaryadapter.Insert(Convert.ToInt32(AdmNo), Type, null, Purpose, SlipCheckNo,
+                            Amount.ToString());
                         MessageBox.Show("The Entry has been added to the database");
                         var str = new StudentPaymentRecord();
                         str.PageClear();
@@ -80,44 +82,23 @@ namespace FinanceApplication
             }
 
 
-            //will return all payments made by the student with the admission number specified
-            //as reflected by the payment summary table in the database
-            //what if 0 rows exist??
-
-
-
-
-            //where statement to filter results from the db into the data table
-            
-            //release the resources previously in the adapter
-            /**psummaryadapter.Fill(fdataset.payment_summary);
-            var selectSum = fdataset.payment_summary.Select(whereAdm).CopyToDataTable();
-
-            var numRowsSum = selectSum.Rows.Count;
-            var count = 0;            
-            while (count < numRowsSum)
-            {
-                var sumRowValue = selectSum.Rows[count];
-                Sum = Sum + Convert.ToInt32(sumRowValue["amount"].ToString());
-                count++;
-            }**/
-
             //compare the total paid by the particular student with each year's total in the fee structure
             for (var count1 = 1; count1 < 5; count1++)
             {
                 for (var count2 = 1; count2 < 4; count2++)
                 {
                     var whereFormTerm = "form=" + count1 + "and term=" + count2;
-                    var whereAdm = "admission_no=" + Convert.ToInt32(AdmNo) + "and form=" + count1 + "and term=" + count2;
+                    var whereAdm = "admission_no=" + Convert.ToInt32(AdmNo) + "and form=" + count1 + "and term=" +
+                                   count2;
 
                     var fstructureDataTable = fdataset.fee_structure.Select(whereFormTerm).CopyToDataTable();
                     var fstructureDataRow = fstructureDataTable.Rows[0]; //since only one datarow will be returned
                     var totalPayable = fstructureDataRow["total"]; //contains total of the fee structure votehead
-                    
+
                     //specific payment details for the particular student 
                     var paydetailsDataTable = fdataset.payment_details.Select(whereAdm).CopyToDataTable();
                     var paydetailsDataRow = paydetailsDataTable.Rows[0];
-                    
+
                     //check if the value in the payment_details relation is equal to the corresponding value in the fee_structure relation
 
 
@@ -127,7 +108,7 @@ namespace FinanceApplication
                         var pdetailsDataTable = fdataset.payment_details.Select(whereAdm).CopyToDataTable();
                         var pdetailsDataRow = pdetailsDataTable.Rows[0];
 
-                        
+
 
                         if (count1 == 1) //for form 1
                         {
@@ -377,7 +358,7 @@ namespace FinanceApplication
                             //of any money paid e.g, caution money should be deducted before pta
                             string[] voteheadNames =
                             {
-                                 "pta", "bes", "activity", "bog", "pe", "medical", "adm", "ltt",
+                                "pta", "bes", "activity", "bog", "pe", "medical", "adm", "ltt",
                                 "rmi", "mentorship", "district_mock", "ewc", "caution_money"
                             };
 
@@ -439,110 +420,6 @@ namespace FinanceApplication
             }
         }
 
-        private void InsertForm4(int sum, int count2)
-        {
-            var term = count2;
-        }
 
-        private void InsertForm3(int sum, int count2)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void InsertForm2(int sum, int count2)
-        {
-            
-        }
-
-        /**private void InsertForm1(int sum, int count2)
-        {
-            var term = count2;
-            MessageBox.Show("sum sent to db: " + sum);
-
-            //To get the fee structure values
-            var fdset = new financeappDataSet();
-            var pdadapter =
-                new financeappDataSetTableAdapters.fee_structureTableAdapter();
-            pdadapter.Fill(fdset.fee_structure);
-            var sqlwhere = "form=1 and term=" + term;
-            var sqlwhere2 = "admission_no=" + Convert.ToInt32(AdmNo) + " and term=" + term;
-            var dataTable = fdset.fee_structure.Select(sqlwhere).CopyToDataTable();
-            var row = dataTable.Rows[0];
-            MessageBox.Show("sum1=" + sum);
-            //add voteheads into an dictionary for easy accessibility
-           
-
-            //make entry to the payment_details relation
-            var fpadapter =
-                new financeappDataSetTableAdapters.payment_detailsTableAdapter();
-            fpadapter.Fill(fdset.payment_details);
-            var dtable = fdset.payment_details.Select(sqlwhere2).CopyToDataTable();
-            var row1 = dtable.Rows[0];
-
-            //query the values that are in the fee structure to find the maximum amount assignable to each votehead
-            sum -= Convert.ToInt32(row1["total"]);
-            var j = 0;
-            while (sum > 0 && j < 13)
-            {
-                if (Convert.ToInt32(row1[voteheadNames[j]]) < Convert.ToInt32(voteheads[j]) &&
-                    (sum > Convert.ToInt32(voteheads[j])))
-                {
-                    sum = sum - (Convert.ToInt32(voteheads[j]) - Convert.ToInt32(row1[voteheadNames[j]]));
-                    row1[voteheadNames[j]] = voteheads[j];
-                }
-                else if (Convert.ToInt32(row1[voteheadNames[j]]) < Convert.ToInt32(voteheads[j]) &&
-                         (Convert.ToInt32(row1[voteheadNames[j]]) == 0))
-                {
-                    row1[voteheadNames[j]] = sum -
-                                              (Convert.ToInt32(row1["total"]) -
-                                               (Convert.ToInt32(row1[voteheadNames[j]])));
-                    sum -= Convert.ToInt32(row1[voteheadNames[j]]);
-                }
-                else
-                {
-                    var val = Convert.ToInt32(row1[voteheadNames[j]].ToString()) + sum;
-                    if (val > Convert.ToInt32(voteheads[j]))
-                    {
-                        row1[voteheadNames[j]] = voteheads[j];
-                        sum -= Convert.ToInt32(row1[voteheadNames[j]]);
-                    }
-                    else
-                    {
-                        row1[voteheadNames[j]] = sum;
-                        sum -= Convert.ToInt32(row1[voteheadNames[j]]);
-                    }
-                }
-                j++;
-            }
-            fpadapter.Update(row1);
-        }**/
     }
 }
-
-/*some:
-                    if (sum > Convert.ToInt32(voteheads[i].ToString()))
-                    {
-                        int row_value = (Convert.ToInt32(row1[votehead_names[i]].ToString()));
-                        int votehead_value=Convert.ToInt32(voteheads[i]);
-                        if (row_value<votehead_value)
-                        {
-                            financeappDataSet fdset3 = new financeappDataSet();
-                            financeappDataSetTableAdapters.payment_detailsTableAdapter fadapter3 = new financeappDataSetTableAdapters.payment_detailsTableAdapter();
-                            fadapter3.Fill(fdset3.payment_details);
-                            MessageBox.Show("if loop" + row1[votehead_names[i]].ToString());
-                            row1[votehead_names[i]] = Convert.ToInt32(voteheads[i]);
-                            fadapter3.Update(row1);
-                            sum = sum - Convert.ToInt32(row1[votehead_names[i]].ToString());
-                            i++;
-                            goto some;
-                        }
-                        else
-                        {
-                            sum = sum - Convert.ToInt32(voteheads[i]);
-                            MessageBox.Show("else loop");
-                            i++;
-                            goto some;
-                        }
-
-                        i++;
-                    }*/

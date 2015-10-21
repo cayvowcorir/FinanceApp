@@ -31,21 +31,12 @@ namespace FinanceApplication
             App.Current.Shutdown();
         }
 
-        private void RadPaneGroup_SelectionChanged(object sender, Telerik.Windows.Controls.RadSelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void RadPaneGroup_SelectionChanged_1(object sender, Telerik.Windows.Controls.RadSelectionChangedEventArgs e)
-        {
-
-        }
-
+        
         private void Back_Btn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                NavigationService.GoBack();
+                NavigationService?.GoBack();
             }
             catch
             {
@@ -86,16 +77,10 @@ namespace FinanceApplication
          
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void FeeStructure_Btn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService nav;
-            nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("ModifyFeeStructure.xaml", UriKind.RelativeOrAbsolute));
+            var nav = NavigationService.GetNavigationService(this);
+            nav?.Navigate(new Uri("ModifyFeeStructure.xaml", UriKind.RelativeOrAbsolute));
         }
 
 
@@ -163,21 +148,16 @@ namespace FinanceApplication
 
         private void ViewStudents_Tab_GotFocus(object sender, RoutedEventArgs e)
         {
-            var fdset = new financeappDataSet();
-            var fsdadapter = new financeappDataSetTableAdapters.students_detailsTableAdapter();
+            var fdset = new financeapplicationDataSet();
+            var fsdadapter = new financeapplicationDataSetTableAdapters.students_detailsTableAdapter();
             fsdadapter.Fill(fdset.students_details);
             ViewStudentsGrid.DataContext = fsdadapter.GetData();
         }
 
         private void EnterPayment_Btn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService nav;
-            nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("StudentPaymentRecord.xaml", UriKind.RelativeOrAbsolute));
+            var nav = NavigationService.GetNavigationService(this);
+            nav?.Navigate(new Uri("StudentPaymentRecord.xaml", UriKind.RelativeOrAbsolute));
         }
-
-
-       
-        
     }
 }

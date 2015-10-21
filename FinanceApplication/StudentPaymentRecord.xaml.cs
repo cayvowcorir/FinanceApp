@@ -24,7 +24,7 @@ namespace FinanceApplication
         {
             try
             {
-                NavigationService.GoBack();
+                NavigationService?.GoBack();
             }
             catch
             {
@@ -33,9 +33,8 @@ namespace FinanceApplication
 
         private void FeeStructure_Btn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService nav;
-            nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("ModifyFeeStructure.xaml", UriKind.RelativeOrAbsolute));
+            var nav = NavigationService.GetNavigationService(this);
+            nav?.Navigate(new Uri("ModifyFeeStructure.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void adm_no_txtbx_TextChanged(object sender, TextChangedEventArgs e)
@@ -98,18 +97,18 @@ namespace FinanceApplication
 
         private void PaymentRecords_TabItem_GotFocus(object sender, RoutedEventArgs e)
         {
-            var fdset = new financeappDataSet();
+            var fdset = new financeapplicationDataSet();
             var fsdadapter =
-                new financeappDataSetTableAdapters.payment_summaryTableAdapter();
+                new financeapplicationDataSetTableAdapters.payment_summaryTableAdapter();
             fsdadapter.Fill(fdset.payment_summary);
             PaymentRecordsGrid.DataContext = fsdadapter.GetData();
         }
 
         private void IndividualPayRecord_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var fdset = new financeappDataSet();
+            var fdset = new financeapplicationDataSet();
             var fsdadapter =
-                new financeappDataSetTableAdapters.payment_summaryTableAdapter();
+                new financeapplicationDataSetTableAdapters.payment_summaryTableAdapter();
             fsdadapter.Fill(fdset.payment_summary);
             PaymentRecordsGrid.DataContext = fsdadapter.GetData();
         }
@@ -120,9 +119,8 @@ namespace FinanceApplication
 
         private void Students_Btn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService nav;
-            nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("StudentView.xaml", UriKind.RelativeOrAbsolute));
+            var nav = NavigationService.GetNavigationService(this);
+            nav?.Navigate(new Uri("StudentView.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

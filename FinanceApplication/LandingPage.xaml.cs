@@ -31,25 +31,20 @@ namespace FinanceApplication
 
         private void ViewStudents_Btn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService nav;
-            nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("StudentView.xaml", UriKind.RelativeOrAbsolute));
+            var nav = NavigationService.GetNavigationService(this);
+            nav?.Navigate(new Uri("StudentView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void FeeStructure_Btn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService nav;
-            nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("ModifyFeeStructure.xaml", UriKind.RelativeOrAbsolute));
+            var nav = NavigationService.GetNavigationService(this);
+            nav?.Navigate(new Uri("ModifyFeeStructure.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void EnterPayment_Btn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService nav;
-            nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("StudentPaymentRecord.xaml", UriKind.RelativeOrAbsolute));
+            var nav = NavigationService.GetNavigationService(this);
+            nav?.Navigate(new Uri("StudentPaymentRecord.xaml", UriKind.RelativeOrAbsolute));
         }
-        
-        
     }
 }

@@ -8,7 +8,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="Images/background.jpg"/>
         </Grid.Background>
-        <Frame Name="BrowserFrame" NavigationUIVisibility="Hidden" Margin="0" Source="LandingPage.xaml" FragmentNavigation="browserFrame_FragmentNavigation"></Frame>
+        <Frame Name="BrowserFrame" NavigationUIVisibility="Hidden" Margin="0" Source="LandingPage.xaml" ></Frame>
         
 
     </Grid>

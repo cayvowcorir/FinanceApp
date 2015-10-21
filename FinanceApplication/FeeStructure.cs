@@ -23,91 +23,34 @@ namespace FinanceApplication
             return Add(selectedForm, selectedTerm);
         }
 
-        private string _bes;
+        public string Bes { get; set; }
 
-        public string Bes
-        {
-            get { return _bes; }
-            set { _bes = value; }
-        }
-        private string _rmi;
+        public string Rmi { get; set; }
 
-        public string Rmi
-        {
-            get { return _rmi; }
-            set { _rmi = value; }
-        }
-        private string _ltt;
-        
-        public string Ltt
-        {
-            get { return _ltt; }
-            set { _ltt = value; }
-        }
-        private string _adm;
+        public string Ltt { get; set; }
 
-        public string Adm
-        {
-            get { return _adm; }
-            set { _adm = value; }
-        }
-        private string _ewc;
+        public string Adm { get; set; }
 
-        public string Ewc
-        {
-            get { return _ewc; }
-            set { _ewc = value; }
-        }
-        private string _medical;
+        public string Ewc { get; set; }
 
-        public string Medical
-        {
-            get { return _medical; }
-            set { _medical = value; }
-        }
-        private string _pe;
+        public string Medical { get; set; }
 
-        public string Pe
-        {
-            get { return _pe; }
-            set { _pe = value; }
-        }
-        private string _bog;
+        public string Pe { get; set; }
 
-        public string Bog
-        {
-            get { return _bog; }
-            set { _bog = value; }
-        }
-        private string _pta;
+        public string Bog { get; set; }
 
-        public string Pta
-        {
-            get { return _pta; }
-            set { _pta = value; }
-        }
-        private string _activity;
+        public string Pta { get; set; }
 
-        public string Activity
-        {
-            get { return _activity; }
-            set { _activity = value; }
-        }
-        private string _mentorship;
-        
-       
+        public string Activity { get; set; }
 
-        public string Mentorship
-        {
-            get { return _mentorship; }
-            set { _mentorship = value; }
-        }
-        
+
+        public string Mentorship { get; set; }
+
 
         public Dictionary<string,string> Add(string form, string term)
         {
-            var fdset = new financeappDataSet();
-            var fadapt = new financeappDataSetTableAdapters.fee_structureTableAdapter();
+            var fdset = new financeapplicationDataSet();
+            var fadapt = new financeapplicationDataSetTableAdapters.fee_structureTableAdapter();
             fadapt.Fill(fdset.fee_structure);
             var columncount = fdset.fee_structure.Columns.Count;
             var rowcount = fdset.fee_structure.Rows.Count;
@@ -116,17 +59,13 @@ namespace FinanceApplication
             foreach (DataRow row in fdset.fee_structure.Rows)
             {
                 var count = 0;
-                
-                if ((row["form"].ToString() == form) && (row["term"].ToString()==term))
+
+                if ((row["form"].ToString() != form) || (row["term"].ToString() != term)) continue;
+                while (count < columncount)
                 {
-                    while (count < columncount)
-                    {
-                        feesitems[fdset.fee_structure.Columns[count].ToString()] = Convert.ToString(row[fdset.fee_structure.Columns[count]]);
-                        count++;                        
-                    }
-                    
+                    feesitems[fdset.fee_structure.Columns[count].ToString()] = Convert.ToString(row[fdset.fee_structure.Columns[count]]);
+                    count++;                        
                 }
-                         
             }
             
        
