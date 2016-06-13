@@ -71,7 +71,7 @@ namespace FinanceApplication
                 catch (Exception ex)
                 {
                     var exceptionmessage = ex.Message.ToString();
-                    MessageBox.Show("Error occured while trying to write to the database. Check the input values and try again. Error Message: " + exceptionmessage);
+                    MessageBox.Show("Error occurred while trying to write to the database. Check the input values and try again. Error Message: " + exceptionmessage);
                 }
             }
          
@@ -140,7 +140,7 @@ namespace FinanceApplication
                 catch (Exception ex)
                 {
                     var exceptionmessage = ex.Message.ToString();
-                    MessageBox.Show("Error occured while trying to write to the database. Check the input values and try again. Error Message: " + exceptionmessage);
+                    MessageBox.Show("Error occurred while trying to write to the database. Check the input values and try again. Error Message: " + exceptionmessage);
                 }
             }
 

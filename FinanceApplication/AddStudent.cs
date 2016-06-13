@@ -99,13 +99,13 @@ namespace FinanceApplication
                 }
                 catch (Exception e2)
                 {
-                    MessageBox.Show("An error has occured. Error Message: " + e2.Message.ToString());
+                    MessageBox.Show("An error has occurred. Error Message: " + e2.Message.ToString());
                 }            
                 
             }
             catch(Exception e1)
             {                
-                MessageBox.Show("Error occured while trying to write to the database. Please try again. Error Message: "+ e1.Message.ToString());
+                MessageBox.Show("Error occurred while trying to write to the database. Please try again. Error Message: "+ e1.Message.ToString());
             }
 
             
@@ -165,13 +165,13 @@ namespace FinanceApplication
                 }
                 catch (Exception e2)
                 {
-                    MessageBox.Show("An error has occured. Error Message: " + e2.Message.ToString());
+                    MessageBox.Show("An error has occurred. Error Message: " + e2.Message.ToString());
                 }
 
             }
             catch (Exception e1)
             {
-                MessageBox.Show("Error occured while trying to write to the database. Please try again. Error Message: " + e1.Message.ToString());
+                MessageBox.Show("Error occurred while trying to write to the database. Please try again. Error Message: " + e1.Message.ToString());
             }
 
         }
